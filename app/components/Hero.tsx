@@ -31,7 +31,7 @@ export const Hero = () => {
           <Image
             src={heroImage}
             alt="heroImage"
-            className="w-[75%] h-auto opacity-100 drop-shadow-lg"
+            className="w-[75%] h-auto opacity-100 drop-shadow-2xl"
           />
         </motion.div>
         <div>
@@ -47,7 +47,7 @@ export const Hero = () => {
           </motion.p>
         </div>
       </div>
-      <div className="flex justify-center items-center pb-16">
+      <div className="flex justify-center items-center pb-8">
         <motion.p style={{ y: sm }}>
           <ChevronsDown
             width={200}

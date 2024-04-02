@@ -1,15 +1,14 @@
 import styles from "./ZoomParallax.module.scss";
 import Picture1 from "../../public/assets/parallax-suv-esemka.jpg";
-import Picture2 from "../../public/assets/parallax-suv-esemka.jpg";
-import Picture3 from "../../public/assets/parallax-suv-esemka.jpg";
-import Picture4 from "../../public/assets/parallax-suv-esemka.jpg";
-import Picture5 from "../../public/assets/parallax-suv-esemka.jpg";
-import Picture6 from "../../public/assets/parallax-suv-esemka.jpg";
-import Picture7 from "../../public/assets/parallax-suv-esemka.jpg";
+import Picture2 from "../../public/assets/Factory.jpg";
+import Picture3 from "../../public/assets/pakde-transformed.jpeg";
+import Picture4 from "../../public/assets/Factory.jpg";
+import Picture5 from "../../public/assets/worker.jpg";
+import Picture6 from "../../public/assets/mobil_bak.jpg";
+import Picture7 from "../../public/assets/mobil_bak.jpg";
 import Image from "next/image";
 import { useScroll, useTransform, motion } from "framer-motion";
 import { useRef } from "react";
-
 export const ZoomParallax = () => {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({

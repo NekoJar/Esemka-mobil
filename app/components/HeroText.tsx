@@ -20,7 +20,7 @@ export const HeroText = () => {
         transition={{ type: "tween", ease: "backOut", duration: 0.5 }}
       >
         <p
-          className="text-zinc-800"
+          className="text-zinc-800 text-center"
           onMouseEnter={() => {
             setIsHovered(true);
           }}
@@ -28,17 +28,16 @@ export const HeroText = () => {
             setIsHovered(false);
           }}
         >
-          A visual designer - with skills that haven&apos;t been replaced by A.I
-          (yet) - making good shit only if the paycheck is equally good.
+          Anak-anak Indonesia mampu untuk membuat mobil dengan kemampuan mereka
+          sendiri.
         </p>
       </motion.div>
 
       <div className={styles.body}>
-        <p className="text-zinc-500">
-          I&apos;m a <span className="text-zinc-200">selectively skilled</span>{" "}
-          product designer with strong focus on producing high quality &
-          impactful digital experience.
-        </p>
+        <div className="text-zinc-500 text-center uppercase">
+          <p className="text-zinc-200">Esemka Bisa</p>
+          <p>Indonesia Bisa</p>
+        </div>
       </div>
     </main>
   );

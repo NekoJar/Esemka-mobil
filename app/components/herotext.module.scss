@@ -1,7 +1,6 @@
 .main {
   height: 100vh;
   background: #000;
-  margin-bottom: 32rem;
 
   .mask,
   .body {
@@ -10,13 +9,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 64px;
-    line-height: 66px;
+    font-size: 96px;
+    line-height: 90px;
     cursor: default;
 
     p {
-      width: 1000px;
-      padding: 40px;
+      width: 1500px;
     }
   }
 
@@ -25,7 +23,7 @@
     mask-repeat: no-repeat;
     mask-size: 40px;
     --tw-text-opacity: 1;
-    background: rgb(212 212 216 / var(--tw-text-opacity));
+    background: rgb(228 228 231 / var(--tw-text-opacity));
     position: absolute;
     color: rgb(255, 255, 255);
   }

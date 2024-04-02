@@ -1,7 +1,6 @@
 .container {
   height: 300vh;
   position: relative;
-  padding-top: 16rem;
   background-color: black;
   .sticky {
     position: sticky;
@@ -18,6 +17,7 @@
       align-items: center;
       justify-content: center;
       .imageContainer {
+        filter: grayscale(80%);
         position: relative;
         width: 25vw;
         height: 25vh;
