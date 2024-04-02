@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
+import NavBar from "./NavBar";
+import dynamic from "next/dynamic";
+import { SmoothScroll } from "./components/SmoothScroll";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Manrope({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +19,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className="">
+        <SmoothScroll>
+          <NavBar />
+          {children}
+        </SmoothScroll>
+      </body>
     </html>
   );
 }
