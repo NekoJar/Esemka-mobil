@@ -27,7 +27,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "app/page.tsx",
-    "app/components/ParallaxScroll.jsx"
+    "app/components/ParallaxScroll.jsx",
+    "app/components/navbar/Body.jsx"
   ],
   "exclude": ["node_modules"]
 }
