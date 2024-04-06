@@ -29,8 +29,9 @@
     "app/page.tsx",
     "app/components/ParallaxScroll.jsx",
     "app/components/navbar/Body.jsx",
-    "app/NavBar.tsx",
-    "app/components/sidebar/Link.jsx"
+    "app/NavBar.jsx",
+    "app/components/sidebar/Link.jsx",
+    "app/components/HeroText.jsx"
   ],
   "exclude": ["node_modules"]
 }
