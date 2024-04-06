@@ -17,42 +17,42 @@ import { usePathname } from "next/navigation";
 
 const NavBar = () => {
   const [isOpenProducts, setOpenProducts] = useState(false);
-  const pathname = usePathname();
-  const [isActive, setIsActive] = useState(false);
+  // const pathname = usePathname();
+  // const [isActive, setIsActive] = useState(false);
   const button = useRef(null);
 
-  useEffect(() => {
-    if (isActive) setIsActive(false);
-  }, [pathname]);
+  // useEffect(() => {
+  //   if (isActive) setIsActive(false);
+  // }, [pathname]);
 
   const onOpenProducts = () => {
     setOpenProducts(!isOpenProducts);
   };
 
-  useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.to(button.current, {
-      scrollTrigger: {
-        trigger: document.documentElement,
-        start: 0,
-        end: window.innerHeight,
-        onLeave: () => {
-          gsap.to(button.current, {
-            scale: 1,
-            duration: 0.25,
-            ease: "power1.out",
-          });
-        },
-        onEnterBack: () => {
-          gsap.to(
-            button.current,
-            { scale: 0, duration: 0.25, ease: "power1.out" },
-            setIsActive(false)
-          );
-        },
-      },
-    });
-  }, []);
+  // useLayoutEffect(() => {
+  //   gsap.registerPlugin(ScrollTrigger);
+  //   gsap.to(button.current, {
+  //     scrollTrigger: {
+  //       trigger: document.documentElement,
+  //       start: 0,
+  //       end: window.innerHeight,
+  //       onLeave: () => {
+  //         gsap.to(button.current, {
+  //           scale: 1,
+  //           duration: 0.25,
+  //           ease: "power1.out",
+  //         });
+  //       },
+  //       onEnterBack: () => {
+  //         gsap.to(
+  //           button.current,
+  //           { scale: 0, duration: 0.25, ease: "power1.out" },
+  //           setIsActive(false)
+  //         );
+  //       },
+  //     },
+  //   });
+  // }, []);
 
   return (
     <>
@@ -135,7 +135,7 @@ const NavBar = () => {
           onClick={onOpenProducts}
         ></motion.div>
       </div>
-      <div ref={button} className="headerButtonContainer">
+      {/* <div ref={button} className="headerButtonContainer">
         <Button
           onClick={() => {
             setIsActive(!isActive);
@@ -145,7 +145,7 @@ const NavBar = () => {
           <div className={`burger ${isActive ? "burgerActive" : ""}`}></div>
         </Button>
       </div>
-      <AnimatePresence mode="wait">{isActive && <Side />}</AnimatePresence>
+      <AnimatePresence mode="wait">{isActive && <Side />}</AnimatePresence> */}
     </>
   );
 };
