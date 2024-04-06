@@ -31,7 +31,7 @@
     "app/components/navbar/Body.jsx",
     "app/NavBar.tsx",
     "app/components/sidebar/Link.jsx",
-    "app/components/HeroText.jsx"
+    "app/components/HeroText.tsx"
   ],
   "exclude": ["node_modules"]
 }

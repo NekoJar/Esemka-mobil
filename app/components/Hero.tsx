@@ -2,10 +2,11 @@
 
 import heroImage from "@/public/assets/Bima-transparent.png";
 import Image from "next/image";
-import { HeroText } from "./HeroText";
+
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ArrowDown, ChevronDown, ChevronsDown } from "lucide-react";
+import { HeroText } from "./HeroText";
 
 export const Hero = () => {
   const container = useRef(null);
