@@ -6,6 +6,7 @@ import { height } from "../../utils/anim";
 import Body from "./Body";
 // import Footer from "./Footer";
 import Image from "./Image";
+import Footer from "./Footer";
 
 const links = [
   {
@@ -18,21 +19,21 @@ const links = [
     href: "/shop",
     src: "Esemka_Bima.jpg",
   },
-  {
-    title: "Home",
-    href: "/",
-    src: "Esemka_Bima.jpg",
-  },
-  {
-    title: "Shop",
-    href: "/shop",
-    src: "Esemka_Bima.jpg",
-  },
-  {
-    title: "Home",
-    href: "/",
-    src: "Esemka_Bima.jpg",
-  },
+  // {
+  //   title: "Home",
+  //   href: "/",
+  //   src: "Esemka_Bima.jpg",
+  // },
+  // {
+  //   title: "Shop",
+  //   href: "/shop",
+  //   src: "Esemka_Bima.jpg",
+  // },
+  // {
+  //   title: "Home",
+  //   href: "/",
+  //   src: "Esemka_Bima.jpg",
+  // },
 ];
 
 export default function Nav() {
@@ -56,7 +57,7 @@ export default function Nav() {
             selectedLink={selectedLink}
             setSelectedLink={setSelectedLink}
           />
-          {/* <Footer /> */}
+          <Footer />
         </div>
         <Image
           src={links[selectedLink.index].src}

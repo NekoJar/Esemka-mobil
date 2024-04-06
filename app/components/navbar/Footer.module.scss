@@ -1,0 +1,31 @@
+.footer {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding-left: 20px;
+}
+
+.footer ul {
+  width: 50%;
+  margin-top: 10px;
+  overflow: hidden;
+  list-style-type: none;
+  padding: 0;
+  color: rgb(161 161 170);
+}
+.footer li span {
+  color: whitesmoke;
+}
+
+@media only screen and (min-width: 1000px) {
+  .footer {
+    justify-content: space-between;
+  }
+  .footer ul {
+    width: auto;
+  }
+}
