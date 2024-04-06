@@ -4,9 +4,14 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import useMousePosition from "../utils/useMousePosition";
 
+interface Coordinates {
+  x: number | null;
+  y: number | null;
+}
+
 export const HeroText = () => {
   const [isHovered, setIsHovered] = useState(false);
-  const { x, y } = useMousePosition();
+  const { x, y }: Coordinates = useMousePosition();
   const size = isHovered ? 400 : 40;
 
   return (

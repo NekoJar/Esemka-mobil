@@ -31,7 +31,8 @@
     "app/components/navbar/Body.jsx",
     "app/NavBar.tsx",
     "app/components/sidebar/Link.jsx",
-    "app/components/HeroText.tsx"
+    "app/components/HeroText.tsx",
+    "app/utils/useMousePosition.ts"
   ],
   "exclude": ["node_modules"]
 }
