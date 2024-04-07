@@ -31,11 +31,15 @@
     "app/components/navbar/Body.jsx",
     "app/NavBar.tsx",
     "app/components/sidebar/Link.jsx",
-    "app/components/HeroText.tsx",
+    "app/components/hero/HeroText.tsx",
     "app/utils/useMousePosition.ts",
-    "app/components/card/Card.jsx",
-    "app/components/News.tsx",
-    "app/utils/data.js"
+    "app/components/news/Card.jsx",
+    "app/components/news/News.tsx",
+    "app/utils/data.js",
+    "app/components/about/Description.tsx",
+    "app/components/about/About.tsx",
+    "app/components/about/Projects.tsx",
+    "app/components/about/Intro.tsx"
   ],
   "exclude": ["node_modules"]
 }

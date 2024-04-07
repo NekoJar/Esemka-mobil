@@ -15,6 +15,25 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 import { usePathname } from "next/navigation";
 
+const navItems = [
+  {
+    title: "Home",
+    href: "/",
+  },
+  {
+    title: "About",
+    href: "#about",
+  },
+  {
+    title: "News",
+    href: "#news",
+  },
+  {
+    title: "Products",
+    href: "#products",
+  },
+];
+
 const NavBar = () => {
   const [isOpenProducts, setOpenProducts] = useState(false);
   const pathname = usePathname();
@@ -42,13 +61,16 @@ const NavBar = () => {
             duration: 0.25,
             ease: "power1.out",
           });
+          setOpenProducts(false);
         },
         onEnterBack: () => {
           gsap.to(
             button.current,
             // @ts-ignore
             { scale: 0, duration: 0.25, ease: "power1.out" },
-            setIsActive(false)
+            setIsActive(false),
+            // @ts-ignore
+            setOpenProducts(false)
           );
         },
       },
@@ -67,69 +89,68 @@ const NavBar = () => {
           }
           `}
         >
-          <div className="flex items-center gap-4">
-            <Link href="/">
-              <Image
-                src={esemkaLogo}
-                alt="esemka-logo"
-                width={100}
-                height={100}
-                className="grayscale contrast-200 brightness-200 invert hover:grayscale-0 hover:brightness-100 hover:contrast-100 hover:invert-0 transition-all duration-500"
-              />
-            </Link>
-            <ul className="flex font-extralight">
-              <li>
-                <Button
-                  variant="link"
-                  className="text-white decoration-transparent text-md hover:text-transparent hover:text-zinc-400 transition-colors duration-700"
-                >
-                  Home
-                </Button>
-              </li>
-              <li>
-                <Button
-                  variant="link"
-                  className="text-white decoration-transparent text-md hover:text-transparent hover:text-zinc-400 transition-colors duration-700"
-                >
-                  About
-                </Button>
-              </li>
-              <li>
-                <Button
-                  variant="link"
-                  className="text-white decoration-transparent text-md hover:text-transparent hover:text-zinc-400 transition-colors duration-700"
-                >
-                  News
-                </Button>
-              </li>
-              <li>
-                <Button
-                  variant="link"
-                  className="text-white decoration-transparent text-md hover:text-transparent hover:text-zinc-400 transition-colors gap-1"
-                  onClick={onOpenProducts}
-                >
-                  <span className={isOpenProducts ? "text-zinc-400" : ""}>
-                    Products
-                  </span>
-                  <span>
-                    <ChevronDown
-                      className={
-                        isOpenProducts
-                          ? "text-zinc-400 rotate-180 transition-transform duration-700"
-                          : "rotate-0 transition-transform duration-700"
-                      }
-                    />
-                  </span>
-                </Button>
-              </li>
-            </ul>
-          </div>
-          <div className="flex items-center gap-4 text-white">
+          <Link href="/">
+            <Image
+              src={esemkaLogo}
+              alt="esemka-logo"
+              width={100}
+              height={100}
+              className="grayscale contrast-200 brightness-200 invert hover:grayscale-0 hover:brightness-100 hover:contrast-100 hover:invert-0 transition-all duration-500"
+            />
+          </Link>
+          <ul className="flex font-extralight">
+            <li>
+              <Button
+                variant="link"
+                className="text-white decoration-transparent text-md hover:text-transparent hover:text-zinc-400 transition-colors duration-700"
+              >
+                Home
+              </Button>
+            </li>
+            <li>
+              <Button
+                variant="link"
+                className="text-white decoration-transparent text-md hover:text-transparent hover:text-zinc-400 transition-colors duration-700"
+              >
+                About
+              </Button>
+            </li>
+            <li>
+              <Button
+                variant="link"
+                className="text-white decoration-transparent text-md hover:text-transparent hover:text-zinc-400 transition-colors duration-700"
+              >
+                News
+              </Button>
+            </li>
+            <li>
+              <Button
+                variant="link"
+                className="text-white decoration-transparent text-md hover:text-transparent hover:text-zinc-400 transition-colors gap-1"
+                onClick={onOpenProducts}
+              >
+                <span className={isOpenProducts ? "text-zinc-400" : ""}>
+                  Products
+                </span>
+                <span>
+                  <ChevronDown
+                    className={
+                      isOpenProducts
+                        ? "text-zinc-400 rotate-180 transition-transform duration-700"
+                        : "rotate-0 transition-transform duration-700"
+                    }
+                  />
+                </span>
+              </Button>
+            </li>
+          </ul>
+
+          {/* <div className="flex items-center gap-4 text-white">
             <CircleUser className="text-white hover:text-zinc-400 font-extralight" />
             <Button onClick={onOpenProducts} variant="link">
               <AlignJustify className="text-white hover:text-zinc-400 font-extralight" />
             </Button>
-          </div>
+          </div> */}
         </div>
         <AnimatePresence mode="wait">
           {isOpenProducts && (

@@ -11,5 +11,6 @@
   }
   .imageContainer img {
     object-fit: cover;
+    filter: saturate(90%);
   }
 }

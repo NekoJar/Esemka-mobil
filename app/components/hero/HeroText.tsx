@@ -2,7 +2,7 @@
 import styles from "./herotext.module.scss";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import useMousePosition from "../utils/useMousePosition";
+import useMousePosition from "../../utils/useMousePosition";
 
 interface Coordinates {
   x: number | null;

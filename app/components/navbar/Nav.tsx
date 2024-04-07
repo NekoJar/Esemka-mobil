@@ -19,21 +19,6 @@ const links = [
     href: "/shop",
     src: "esemka-bima-1-3.png",
   },
-  // {
-  //   title: "Home",
-  //   href: "/",
-  //   src: "Esemka_Bima.jpg",
-  // },
-  // {
-  //   title: "Shop",
-  //   href: "/shop",
-  //   src: "Esemka_Bima.jpg",
-  // },
-  // {
-  //   title: "Home",
-  //   href: "/",
-  //   src: "Esemka_Bima.jpg",
-  // },
 ];
 
 export default function Nav() {

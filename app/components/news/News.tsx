@@ -2,8 +2,8 @@
 import { useScroll } from "framer-motion";
 import { useEffect, useRef } from "react";
 import Lenis from "@studio-freight/lenis";
-import { projects } from "../utils/data";
-import Card from "./card/Card";
+import { projects } from "../../utils/data";
+import Card from "./Card";
 
 export function News() {
   const container = useRef(null);
@@ -25,7 +25,10 @@ export function News() {
   });
 
   return (
-    <div ref={container} className="pt-96 bg-zinc-200">
+    <div
+      ref={container}
+      className="pt-96 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-300 to-zinc-400"
+    >
       {projects.map((project, i) => {
         const targetScale = 1 - (projects.length - i) * 0.05;
         return (

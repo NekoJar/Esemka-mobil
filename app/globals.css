@@ -69,3 +69,12 @@ body {
     }
   }
 }
+
+.mask {
+  mask-image: linear-gradient(#000, rgba(0, 0, 0, 0.2));
+  mask-repeat: no-repeat;
+  mask-size: 40px;
+  --tw-text-opacity: 1;
+  background: rgb(228 228 231 / var(--tw-text-opacity));
+  position: absolute;
+}
