@@ -29,10 +29,13 @@
     "app/page.tsx",
     "app/components/ParallaxScroll.jsx",
     "app/components/navbar/Body.jsx",
-    "app/NavBar.tsx",
+    "app/NavBar.jsx",
     "app/components/sidebar/Link.jsx",
     "app/components/HeroText.tsx",
-    "app/utils/useMousePosition.ts"
+    "app/utils/useMousePosition.ts",
+    "app/components/card/Card.jsx",
+    "app/components/News.jsx",
+    "app/utils/data.js"
   ],
   "exclude": ["node_modules"]
 }
