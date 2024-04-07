@@ -46,6 +46,7 @@ const NavBar = () => {
         onEnterBack: () => {
           gsap.to(
             button.current,
+            // @ts-ignore
             { scale: 0, duration: 0.25, ease: "power1.out" },
             setIsActive(false)
           );
