@@ -59,11 +59,13 @@ const NavBar = () => {
     <>
       <div className="flex flex-col absolute w-[100%] z-[2]">
         <div
-          className={
+          className={`flex items-center gap-8 p-2 px-16 justify-between border-b border-zinc-900
+          ${
             isOpenProducts
-              ? "flex items-center gap-8 p-2 px-16 justify-between bg-zinc-900 border-b border-zinc-900"
-              : "flex items-center gap-8 p-2 px-16 justify-between bg-gradient-to-b from-zinc-900 to-transparent hover:bg-zinc-900 transition-colors duration-700 border-b border-zinc-900"
+              ? "bg-zinc-900 "
+              : "bg-gradient-to-b from-zinc-900 to-transparent hover:bg-zinc-900 transition-colors duration-700 "
           }
+          `}
         >
           <div className="flex items-center gap-4">
             <Link href="/">
@@ -90,6 +92,14 @@ const NavBar = () => {
                   className="text-white decoration-transparent text-md hover:text-transparent hover:text-zinc-400 transition-colors duration-700"
                 >
                   About
+                </Button>
+              </li>
+              <li>
+                <Button
+                  variant="link"
+                  className="text-white decoration-transparent text-md hover:text-transparent hover:text-zinc-400 transition-colors duration-700"
+                >
+                  News
                 </Button>
               </li>
               <li>

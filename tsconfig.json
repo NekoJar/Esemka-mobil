@@ -34,7 +34,7 @@
     "app/components/HeroText.tsx",
     "app/utils/useMousePosition.ts",
     "app/components/card/Card.jsx",
-    "app/components/News.jsx",
+    "app/components/News.tsx",
     "app/utils/data.js"
   ],
   "exclude": ["node_modules"]

@@ -12,12 +12,12 @@ const links = [
   {
     title: "Bima 1.2",
     href: "/",
-    src: "Esemka_Bima.jpg",
+    src: "esemka-bima-1-2.jpg",
   },
   {
     title: "Bima 1.3",
     href: "/shop",
-    src: "Esemka_Bima.jpg",
+    src: "esemka-bima-1-3.png",
   },
   // {
   //   title: "Home",
