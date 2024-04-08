@@ -61,6 +61,7 @@
         }
         img {
           object-fit: cover;
+          filter: grayscale(70%);
         }
       }
     }

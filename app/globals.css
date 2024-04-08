@@ -12,6 +12,14 @@
 body {
   margin: 0px;
   font-family: "Avant Garde Book BT";
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 768px) {
+  /* Show scrollbars on mobile devices */
+  body {
+    overflow: auto;
+  }
 }
 
 .headerButtonContainer {

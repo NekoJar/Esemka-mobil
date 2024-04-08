@@ -11,15 +11,15 @@ const projects = [
   },
   {
     title: "Valle de la luna",
-    src: "Esemka_Bima.jpg",
+    src: "Factory.jpg",
   },
   {
     title: "Miscanti Lake",
-    src: "Esemka_Bima.jpg",
+    src: "worker.jpg",
   },
   {
     title: "Miniques Lagoons",
-    src: "Esemka_Bima.jpg",
+    src: "mobil_bak.jpg",
   },
 ];
 
