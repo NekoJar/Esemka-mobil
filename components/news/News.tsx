@@ -27,7 +27,7 @@ export function News() {
   return (
     <div
       ref={container}
-      className="pt-96 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-300 to-zinc-400"
+      className="py-96 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-500 to-zinc-700"
     >
       {projects.map((project, i) => {
         const targetScale = 1 - (projects.length - i) * 0.05;

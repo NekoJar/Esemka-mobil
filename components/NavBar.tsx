@@ -2,15 +2,15 @@
 
 import Image from "next/image";
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
-import esemkaLogo from "@/public/assets/logo.png";
+import esemkaLogo from "@/public/assets/logo-small.png";
 import { AlignJustify, ChevronDown, CircleUser } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { AnimatePresence } from "framer-motion";
-import Nav from "./components/navbar/Nav";
-import Side from "./components/sidebar/Side";
-import { SideBackground, background } from "./utils/anim";
+import Nav from "./navbar/Nav";
+import Side from "./sidebar/Side";
+import { SideBackground, background } from "../utils/anim";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 import { usePathname } from "next/navigation";
@@ -81,7 +81,7 @@ const NavBar = () => {
     <>
       <div className="flex flex-col absolute w-[100%] z-[2]">
         <div
-          className={`flex items-center gap-8 p-2 px-16 justify-between border-b border-zinc-900
+          className={`flex items-center gap-8 p-6 px-16 justify-between border-b border-zinc-900
           ${
             isOpenProducts
               ? "bg-zinc-900 "
@@ -93,8 +93,8 @@ const NavBar = () => {
             <Image
               src={esemkaLogo}
               alt="esemka-logo"
-              width={100}
-              height={100}
+              width={70}
+              height={70}
               className="grayscale contrast-200 brightness-200 invert hover:grayscale-0 hover:brightness-100 hover:contrast-100 hover:invert-0 transition-all duration-500"
             />
           </Link>

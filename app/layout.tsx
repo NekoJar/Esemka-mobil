@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
-import NavBar from "./NavBar";
+import NavBar from "../components/NavBar";
 import dynamic from "next/dynamic";
-import { SmoothScroll } from "./components/SmoothScroll";
+import { SmoothScroll } from "../components/ui/SmoothScroll";
+import { Providers } from "./Providers";
+import { TransitionProvider } from "../components/products/TransitionContext";
 
 // const inter = Manrope({ subsets: ["latin"] });
 
@@ -20,10 +22,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="">
-        <SmoothScroll>
-          <NavBar />
-          {children}
-        </SmoothScroll>
+        <Providers>
+          <SmoothScroll>
+            <NavBar />
+            {children}
+          </SmoothScroll>
+        </Providers>
       </body>
     </html>
   );
