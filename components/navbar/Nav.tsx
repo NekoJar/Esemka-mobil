@@ -11,12 +11,12 @@ import Footer from "./Footer";
 const links = [
   {
     title: "Bima 1.2",
-    href: "/",
+    href: "/products/bima-1-2",
     src: "esemka-bima-1-2.jpg",
   },
   {
     title: "Bima 1.3",
-    href: "/shop",
+    href: "/products/bima-1-3",
     src: "esemka-bima-1-3.png",
   },
 ];
