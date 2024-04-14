@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
-import NavBar from "../components/NavBar";
+import NavBar from "../components/navbar/NavBar";
 import dynamic from "next/dynamic";
 import { SmoothScroll } from "../components/ui/SmoothScroll";
 import { Providers } from "./Providers";

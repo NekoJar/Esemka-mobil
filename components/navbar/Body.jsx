@@ -3,7 +3,12 @@ import Link from "next/link";
 import styles from "./Body.module.scss";
 import { blur, translate } from "../../utils/anim";
 
-export default function Body({ links, selectedLink, setSelectedLink }) {
+export default function Body({
+  links,
+  selectedLink,
+  setSelectedLink,
+  onOpenProducts,
+}) {
   const getChars = (word) => {
     let chars = [];
     word.split("").forEach((char, i) => {
@@ -37,6 +42,7 @@ export default function Body({ links, selectedLink, setSelectedLink }) {
                 setSelectedLink({ isActive: false, index });
               }}
               variants={blur}
+              onClick={onOpenProducts}
               animate={
                 selectedLink.isActive && selectedLink.index != index
                   ? "open"

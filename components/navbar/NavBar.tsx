@@ -8,9 +8,9 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { AnimatePresence } from "framer-motion";
-import Nav from "./navbar/Nav";
-import Side from "./sidebar/Side";
-import { SideBackground, background } from "../utils/anim";
+import Nav from "./Nav";
+import Side from "../sidebar/Side";
+import { SideBackground, background } from "../../utils/anim";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 import { usePathname } from "next/navigation";
@@ -144,18 +144,11 @@ const NavBar = () => {
               </Button>
             </li>
           </ul>
-
-          {/* <div className="flex items-center gap-4 text-white">
-            <CircleUser className="text-white hover:text-zinc-400 font-extralight" />
-            <Button onClick={onOpenProducts} variant="link">
-              <AlignJustify className="text-white hover:text-zinc-400 font-extralight" />
-            </Button>
-          </div> */}
         </div>
         <AnimatePresence mode="wait">
           {isOpenProducts && (
             <div className=" bg-zinc-900 ">
-              <Nav />
+              <Nav onOpenProducts={onOpenProducts} />
             </div>
           )}
         </AnimatePresence>

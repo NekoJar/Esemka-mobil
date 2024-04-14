@@ -29,7 +29,7 @@
     "app/page.tsx",
     "app/components/ParallaxScroll.jsx",
     "components/navbar/Body.jsx",
-    "components/NavBar.tsx",
+    "components/navbar/NavBar.tsx",
     "components/sidebar/Link.jsx",
     "components/hero/HeroText.tsx",
     "utils/useMousePosition.ts",

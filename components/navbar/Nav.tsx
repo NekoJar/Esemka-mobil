@@ -21,7 +21,11 @@ const links = [
   },
 ];
 
-export default function Nav() {
+export default function Nav({
+  onOpenProducts,
+}: {
+  onOpenProducts: () => void;
+}) {
   const [selectedLink, setSelectedLink] = useState({
     isActive: false,
     index: 0,
@@ -41,6 +45,7 @@ export default function Nav() {
             links={links}
             selectedLink={selectedLink}
             setSelectedLink={setSelectedLink}
+            onOpenProducts={onOpenProducts}
           />
           <Footer />
         </div>
