@@ -5,13 +5,14 @@
   justify-content: center;
   position: sticky;
   top: 0px;
+  padding-top: 64px;
   .card {
     display: flex;
     flex-direction: column;
     position: relative;
     top: -25%;
-    height: 500px;
-    width: 1000px;
+    height: 600px;
+    width: 1200px;
     border-radius: 25px;
     padding: 50px;
     transform-origin: top;

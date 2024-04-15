@@ -13,7 +13,7 @@ const Bima12Page = () => {
             alt="bima-1-2"
             width={400}
             height={400}
-            className="grayscale-[20%] shadow-xl p-4"
+            className="grayscale-[20%]"
           />
           <div className="bg-neutral-700 border-1 border-zinc-50/20 p-14 rounded-xl w-[35rem] text-white space-y-4 backdrop-blur-md">
             <div className="border-b-[1px] pb-4">

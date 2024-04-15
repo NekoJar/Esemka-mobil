@@ -54,16 +54,16 @@ export default function Projects() {
         </div>
         <div className={styles.column}>
           <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi
-            mollitia error qui adipisci voluptatum recusandae delectus et
+            Seiring berjalannya waktu ESEMKA akhirnya berpindah ke jalur
+            Industri untuk dapat lebih mengembangkan diri beserta variasi
+            produknya.
           </p>
         </div>
         <div className={styles.column}>
           <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi
-            mollitia error qui adipisci voluptatum recusandae delectus et, nam
-            tempore enim inventore iste, doloribus earum, sed dignissimos in
-            nisi? Illum, atque!
+            ESEMKA membentuk suatu badan usaha berbentuk perseroan terbatas yang
+            diberi nama PT. Solo Manufaktur Kreasi yang 100% sahamnya dimiliki
+            oleh swasta nasional.
           </p>
         </div>
       </div>

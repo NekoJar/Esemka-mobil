@@ -1,18 +1,19 @@
 import React, { ReactNode, useLayoutEffect, useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
-import styles from "./Description.module.scss";
 
 const phrases = [
-  "Berawal dari sekelompok orang",
-  "yang mempunyai cita-cita yang sama",
-  "untuk membuktikan bahwa anak-anak Indonesia",
-  "bisa dan mampu untuk membuat mobil sendiri",
+  "seiring dengan dicetuskannya kota Solo ",
+  "sebagai Kota Vokasi oleh Bapak Joko Widodo ",
+  "Banyaknya SMK yang berdiri, mendorong",
+  "semangat komunitas ESEMKA untuk",
+  "semakin cepat mewujudkan ",
+  "cita-cita mereka.",
 ];
 
-export default function Description() {
+export default function DescriptionBottom() {
   return (
-    <div className="relative text-white text-[3vw] uppercase mt-[10vw] ml-[10vw]">
+    <div className="relative text-white/90 text-[2.6vw] uppercase mt-[20vw] mr-[10vw]">
       {phrases.map((phrase, index) => {
         return <AnimatedText key={index}>{phrase}</AnimatedText>;
       })}
@@ -30,11 +31,11 @@ function AnimatedText({ children }: { children: ReactNode }) {
         scrollTrigger: {
           trigger: text.current,
           scrub: true,
-          start: "-100px bottom",
+          start: "0px bottom",
           end: "bottom+=400px bottom",
         },
         opacity: 0,
-        left: "-200px",
+        right: "-200px",
         ease: "power3.Out",
       });
     });
@@ -42,7 +43,7 @@ function AnimatedText({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <p ref={text} className="text-left m-0 relative">
+    <p ref={text} className="text-right m-0 relative">
       {children}
     </p>
   );

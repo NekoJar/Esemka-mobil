@@ -42,7 +42,8 @@
     "components/about/Intro.tsx",
     "components/products/Descriptions.jsx",
     "components/products/Products.tsx",
-    "components/products/Transition.jsx"
+    "components/products/Transition.jsx",
+    "components/news/PlainCard.jsx"
   ],
   "exclude": ["node_modules"]
 }

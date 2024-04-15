@@ -39,8 +39,8 @@ export const HeroText = () => {
       </motion.div>
 
       <div className={styles.body}>
-        <div className="text-zinc-500 text-center uppercase">
-          <p className="text-zinc-200">Esemka Bisa</p>
+        <div className="text-zinc-500 text-center uppercase text-[7rem]">
+          <p className="text-zinc-200 ">Esemka Bisa</p>
           <p>Indonesia Bisa</p>
         </div>
       </div>

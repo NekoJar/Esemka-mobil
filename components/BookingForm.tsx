@@ -10,9 +10,14 @@ import { Button } from "./ui/button";
 export const BookingForm = () => {
   return (
     <form className="mt-4 sm:mt-0 flex flex-col" action={send}>
-      <div className="border-b-[1px] space-y-4 pb-4 mb-4">
+      <div className="border-b-[1px] space-y-4 pb-4 mb-6">
         <p className=" text-lg text-white/70">Colour</p>
-        <Button variant="outlineNoBg" className="bg-zinc-900/50" disabled>
+        <Button
+          variant="outlineNoBg"
+          className="bg-zinc-900/50"
+          disabled
+          name="carColour"
+        >
           <p className="flex items-center text-white lowercase gap-4">
             <span className="p-2 bg-white rounded-full border-none"></span>
             White
@@ -78,12 +83,6 @@ export const BookingForm = () => {
       </div>
 
       <div className="mb-6">
-        <label
-          htmlFor="messages"
-          className="text-white block text-sm mb-2 font-medium"
-        >
-          Note
-        </label>
         <textarea
           className="h-20 bg-transparent border placeholder-white/50 text-white text-sm rounded-xl block w-full p-2.5 transition-all"
           name="message"
