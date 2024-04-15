@@ -1,30 +1,55 @@
-import { Button, Html, Tailwind } from "@react-email/components";
+import {
+  Body,
+  Button,
+  Container,
+  Head,
+  Heading,
+  Hr,
+  Html,
+  Preview,
+  Section,
+  Tailwind,
+  Text,
+} from "@react-email/components";
 import * as React from "react";
 
 interface EmailFormProps {
   message: string;
   senderEmail: string;
+  senderName: string;
+  senderAddress: string;
+  senderDate: string;
 }
 
-export default function EmailForm({ message, senderEmail }: EmailFormProps) {
+export default function EmailForm({
+  message,
+  senderEmail,
+  senderAddress,
+  senderName,
+  senderDate,
+}: EmailFormProps) {
   return (
-    <Tailwind
-      config={{
-        theme: {
-          extend: {
-            colors: {
-              brand: "#007291",
-            },
-          },
-        },
-      }}
-    >
-      <Button
-        href="https://example.com"
-        className="p-6 bg-black rounded-full text-white font-extralight"
-      >
-        Click me
-      </Button>
-    </Tailwind>
+    <Html>
+      <Head />
+      <Preview>New messages from Esemka Mobil Booking Form</Preview>
+      <Tailwind>
+        <Body className="bg-gray-100 text-black">
+          <Container>
+            <Section className="bg-white borderBlack my-10 px-10 py-4 rounded-md">
+              <Heading className="leading-tight">
+                You received the following message from {senderEmail}
+              </Heading>
+              <Text className="text-bold">New Message!</Text>
+              <br></br>
+              <Text>{senderName}</Text>
+              <Text>{senderAddress}</Text>
+              <Text>{senderDate}</Text>
+              <Text>{message}</Text>
+              <Hr />
+            </Section>
+          </Container>
+        </Body>
+      </Tailwind>
+    </Html>
   );
 }

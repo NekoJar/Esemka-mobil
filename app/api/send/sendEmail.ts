@@ -5,11 +5,15 @@ import { Resend } from "resend";
 import { renderAsync } from "@react-email/render";
 import { validateString, getErrorMessage } from "@/lib/utils";
 import EmailForm from "@/emails/EmailForm";
+import { toast } from "sonner";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export const sendEmail = async (formData: FormData) => {
+  const senderName = formData.get("senderName") as string;
   const senderEmail = formData.get("senderEmail");
+  const senderaddress = formData.get("senderAddress") as string;
+  const senderDate = formData.get("senderDate") as string;
   const message = formData.get("message");
   const subject = formData.get("subject");
 
@@ -28,13 +32,16 @@ export const sendEmail = async (formData: FormData) => {
   let data;
   try {
     data = await resend.emails.send({
-      from: "Contact Form <onboarding@resend.dev>",
+      from: "Esemka Booking Form <onboarding@resend.dev>",
       to: "jarrworkspace@gmail.com",
-      subject: "Message from contact form",
+      subject: "Esemka Booking Form",
       reply_to: senderEmail,
       react: React.createElement(EmailForm, {
         message: message,
         senderEmail: senderEmail,
+        senderName: senderName,
+        senderAddress: senderaddress,
+        senderDate: senderDate,
       }),
     });
   } catch (error: unknown) {
@@ -46,4 +53,8 @@ export const sendEmail = async (formData: FormData) => {
   return {
     data,
   };
+};
+
+export const send = async (formData: FormData) => {
+  const { data, error } = await sendEmail(formData);
 };

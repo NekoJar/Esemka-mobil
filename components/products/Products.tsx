@@ -12,7 +12,7 @@ export const Products = () => {
         <div className="flex items-center justify-around bg-gradient-to-br from-zinc-200 from-40% via-zinc-500 via-90% to-zinc-700  p-64">
           <div className="text-8xl">
             <p>Bima 1.2</p>
-            <Button variant="outline" className="decoration-transparent">
+            <Button variant="outlineNoBg" className="border-black rounded-none">
               <Link href="/products/bima-1-2" className="flex items-center">
                 Learn More
                 <span>
@@ -41,7 +41,7 @@ export const Products = () => {
           />
           <div className="text-8xl text-white">
             <p>Bima 1.3</p>
-            <Button variant="outline" className="decoration-transparent">
+            <Button variant="outlineNoBg" className="rounded-none">
               <Link href="/products/bima-1-3" className="flex items-center">
                 Learn More
                 <span>

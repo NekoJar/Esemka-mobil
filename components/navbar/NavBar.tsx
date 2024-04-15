@@ -162,6 +162,7 @@ const NavBar = () => {
       </div>
       <div ref={button} className="headerButtonContainer">
         <Button
+          variant="link"
           onClick={() => {
             setIsActive(!isActive);
           }}
