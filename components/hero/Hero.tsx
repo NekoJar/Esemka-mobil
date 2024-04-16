@@ -6,7 +6,6 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ArrowDown, ChevronDown, ChevronsDown } from "lucide-react";
-import { HeroText } from "./HeroText";
 
 export const Hero = () => {
   const container = useRef(null);
@@ -15,8 +14,8 @@ export const Hero = () => {
     offset: ["start end", "end start"],
   });
   const xs = useTransform(scrollYProgress, [0, 1], [0, -800]);
-  const sm = useTransform(scrollYProgress, [0, 1], [0, -550]);
-  const md = useTransform(scrollYProgress, [0, 1], [0, 550]);
+  const sm = useTransform(scrollYProgress, [0, 1], [0, -350]);
+  const md = useTransform(scrollYProgress, [0, 1], [0, 350]);
   const lg = useTransform(scrollYProgress, [0, 1], [0, -100]);
 
   return (
@@ -35,14 +34,14 @@ export const Hero = () => {
             className="w-[75%] h-auto opacity-100 drop-shadow-2xl"
           />
         </motion.div>
-        <div>
+        <div className="">
           <motion.p style={{ y: sm }} className="absolute">
             <p className="text-[32rem] text-white  py-16 uppercase drop-shadow-lg">
               EsemKa
             </p>
           </motion.p>
           <motion.p style={{ y: md }}>
-            <p className="text-[32rem] text-white  py-16 uppercase drop-shadow-lg opacity-10">
+            <p className="text-[32rem] text-white/10  py-16 uppercase drop-shadow-lg">
               EsemKa
             </p>
           </motion.p>
@@ -59,7 +58,6 @@ export const Hero = () => {
           />
         </motion.p>
       </div>
-      <HeroText />
     </div>
   );
 };

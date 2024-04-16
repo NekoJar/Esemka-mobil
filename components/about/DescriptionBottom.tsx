@@ -4,7 +4,7 @@ import gsap from "gsap";
 
 const phrases = [
   "seiring dengan dicetuskannya kota Solo ",
-  "sebagai Kota Vokasi oleh Bapak Joko Widodo ",
+  "sebagai Kota Vokasi oleh Bapak Joko Widodo",
   "Banyaknya SMK yang berdiri, mendorong",
   "semangat komunitas ESEMKA untuk",
   "semakin cepat mewujudkan ",
@@ -13,7 +13,7 @@ const phrases = [
 
 export default function DescriptionBottom() {
   return (
-    <div className="relative text-white/90 text-[2.6vw] uppercase mt-[20vw] mr-[10vw]">
+    <div className="relative text-white/90 text-[3vw] uppercase mt-[30vw] ml-[10vw] ">
       {phrases.map((phrase, index) => {
         return <AnimatedText key={index}>{phrase}</AnimatedText>;
       })}
@@ -35,7 +35,7 @@ function AnimatedText({ children }: { children: ReactNode }) {
           end: "bottom+=400px bottom",
         },
         opacity: 0,
-        right: "-200px",
+        left: "-200px",
         ease: "power3.Out",
       });
     });
@@ -43,7 +43,7 @@ function AnimatedText({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <p ref={text} className="text-right m-0 relative">
+    <p ref={text} className=" m-0 relative">
       {children}
     </p>
   );

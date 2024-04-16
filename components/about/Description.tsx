@@ -12,7 +12,7 @@ const phrases = [
 
 export default function Description() {
   return (
-    <div className="relative text-white text-[3vw] uppercase mt-[10vw] ml-[10vw]">
+    <div className="relative text-white/80 text-[1.6vw] uppercase mt-[10vw] mr-[10vw] font-extralight font-roboto">
       {phrases.map((phrase, index) => {
         return <AnimatedText key={index}>{phrase}</AnimatedText>;
       })}
@@ -34,7 +34,7 @@ function AnimatedText({ children }: { children: ReactNode }) {
           end: "bottom+=400px bottom",
         },
         opacity: 0,
-        left: "-200px",
+        right: "-200px",
         ease: "power3.Out",
       });
     });
@@ -42,7 +42,7 @@ function AnimatedText({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <p ref={text} className="text-left m-0 relative">
+    <p ref={text} className="text-right m-0 relative">
       {children}
     </p>
   );

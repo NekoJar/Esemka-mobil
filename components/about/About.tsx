@@ -7,20 +7,14 @@ import DescriptionBottom from "./DescriptionBottom";
 export const About = () => {
   return (
     <div className="pt-32">
-      <div className="p-8 text-white">
-        <p className="uppercase text-[16rem] ">History</p>
-        <div className="flex justify-between pt-14 -mt-16 border-t-[1px] border-white">
-          <ul className="italic lowercase space-x-96 flex">
-            <li>karya</li>
-            <li>anak</li>
-            <li>bangsa</li>
-          </ul>
-          <p className="text-white/50">(2024)</p>
-        </div>
+      <div className="px-20 text-white/60">
+        <p className={` uppercase text-[16rem] font-extrabold font-montserrat`}>
+          History
+        </p>
       </div>
 
       <Description />
-      <div className="flex justify-end items-end p-8">
+      <div className="flex p-8 pb-96">
         <DescriptionBottom />
       </div>
       <div>

@@ -7,12 +7,16 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "email": "email dev"
+    "email": "email dev",
+    "slicemachine": "start-slicemachine"
   },
   "dependencies": {
     "@gsap/react": "^2.1.0",
     "@hookform/resolvers": "^3.3.4",
     "@nextui-org/react": "^2.2.10",
+    "@prismicio/client": "^7.4.1",
+    "@prismicio/next": "^1.5.0",
+    "@prismicio/react": "^2.7.4",
     "@radix-ui/react-icons": "^1.3.0",
     "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-popover": "^1.0.7",
@@ -40,6 +44,7 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@slicemachine/adapter-next": "^0.3.38",
     "@types/locomotive-scroll": "^4.1.3",
     "@types/node": "^20",
     "@types/react": "^18",
@@ -49,6 +54,7 @@
     "eslint-config-next": "14.1.3",
     "postcss": "^8",
     "postcss-nesting": "^12.1.1",
+    "slice-machine-ui": "^1.26.0",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
   }

@@ -35,7 +35,7 @@ export default function Projects() {
         trigger: imageContainer.current,
         pin: true,
         start: "top-=100px",
-        end: "bottom-=100px",
+        end: "bottom+=550px",
       });
     });
     return () => ctx.revert();

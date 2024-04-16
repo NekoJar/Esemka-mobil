@@ -1,0 +1,18 @@
+{
+  "format": "custom",
+  "id": "settings",
+  "label": "settings",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "site_title": {
+        "type": "Text",
+        "config": {
+          "label": "Site Title",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}

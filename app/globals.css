@@ -67,6 +67,13 @@
 }
 
 @layer base {
+  /* @font-face {
+    font-family: "Avant Garde Book BT";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("../public/fonts/AVGARDD_2.woff") format("woff");
+  } */
   * {
     @apply border-border;
   }
@@ -75,16 +82,8 @@
   }
 }
 
-@font-face {
-  font-family: "Avant Garde Book BT";
-  font-style: normal;
-  font-weight: 100;
-  src: url("../public/fonts/AVGARDD_2.woff") format("woff");
-}
-
 body {
   margin: 0px;
-  font-family: "Avant Garde Book BT";
   overflow: hidden;
 }
 

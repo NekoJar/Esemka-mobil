@@ -15,25 +15,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 import { usePathname } from "next/navigation";
 
-const navItems = [
-  {
-    title: "Home",
-    href: "/",
-  },
-  {
-    title: "About",
-    href: "#about",
-  },
-  {
-    title: "News",
-    href: "#news",
-  },
-  {
-    title: "Products",
-    href: "#products",
-  },
-];
-
 const NavBar = () => {
   const [isOpenProducts, setOpenProducts] = useState(false);
   const pathname = usePathname();
