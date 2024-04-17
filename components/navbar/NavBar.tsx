@@ -101,7 +101,7 @@ const NavBar = () => {
                 variant="link"
                 className="text-white decoration-transparent text-md hover:text-transparent hover:text-zinc-400 transition-colors duration-700"
               >
-                <Link href="/news">Articles</Link>
+                <Link href="/news">News</Link>
               </Button>
             </li>
             <li>

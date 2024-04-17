@@ -60,17 +60,19 @@ export function News() {
         })}
       </div>
       <div className="flex items-center justify-center -mt-[24rem] pb-96">
-        <Button
-          variant="outlineNoBg"
-          className="rounded-full p-8 border-black/35"
-        >
-          <p className="flex gap-4 items-center">
-            More News
-            <span>
-              <ArrowUpRight />
-            </span>
-          </p>
-        </Button>
+        <Link href="/news">
+          <Button
+            variant="outlineNoBg"
+            className="rounded-full p-8 border-black/35"
+          >
+            <p className="flex gap-4 items-center">
+              More News
+              <span>
+                <ArrowUpRight />
+              </span>
+            </p>
+          </Button>
+        </Link>
       </div>
     </div>
   );
