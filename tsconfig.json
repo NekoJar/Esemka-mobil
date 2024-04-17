@@ -44,7 +44,18 @@
     "components/products/Products.tsx",
     "components/products/Transition.jsx",
     "components/news/PlainCard.jsx",
-    "components/getChars.jsx"
+    "components/getChars.jsx",
+    "components/articles/Heading.jsx",
+    "components/RichText.jsx",
+    "app/[uid]/page.jsx",
+    "lib/findFirstImage.js",
+    "lib/getExcerpt.js",
+    "app/(pages)/articles/[uid]/page.jsx",
+    "slices/Quote/index.jsx",
+    "slices/Image/index.jsx",
+    "slices/Text/index.jsx",
+    "slices/index.ts",
+    "app/slice-simulator/page.tsx"
   ],
   "exclude": ["node_modules"]
 }
