@@ -50,7 +50,7 @@
     "app/[uid]/page.jsx",
     "lib/findFirstImage.js",
     "lib/getExcerpt.js",
-    "app/(pages)/articles/[uid]/page.jsx",
+    "app/(pages)/news/[uid]/page.jsx",
     "slices/Quote/index.jsx",
     "slices/Image/index.jsx",
     "slices/Text/index.jsx",
