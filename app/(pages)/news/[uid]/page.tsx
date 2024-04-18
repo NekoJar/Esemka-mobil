@@ -1,14 +1,18 @@
-import Link from "next/link";
 import * as prismic from "@prismicio/client";
 import { PrismicNextLink } from "@prismicio/next";
 import { PrismicText, SliceZone } from "@prismicio/react";
+import Link from "next/link";
 
-import { createClient } from "@/prismicio";
-import { components } from "@/slices";
-import { Layout } from "@/components/articles/Layout";
 import { Bounded } from "@/components/articles/Bounded";
 import { Heading } from "@/components/articles/Heading";
 import { HorizontalDivider } from "@/components/articles/HorizontalDivider";
+import { Layout } from "@/components/articles/Layout";
+import { createClient } from "@/prismicio";
+import { components } from "@/slices";
+import { notFound } from "next/navigation";
+import { ArticleDocument } from "@/prismicio-types";
+
+type Params = { uid: string };
 
 const dateFormatter = new Intl.DateTimeFormat("en-US", {
   month: "short",
@@ -16,7 +20,7 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
   year: "numeric",
 });
 
-function LatestArticle({ article }) {
+function LatestArticle({ article }: { article: ArticleDocument<string> }) {
   const date = prismic.asDate(
     article.data.publishDate || article.first_publication_date
   );
@@ -35,7 +39,7 @@ function LatestArticle({ article }) {
   );
 }
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata({ params }: { params: Params }) {
   const client = createClient();
   const settings = await client.getSingle("settings");
   const article = await client
@@ -58,7 +62,7 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default async function Page({ params }) {
+export default async function Page({ params }: { params: Params }) {
   const client = createClient();
 
   const article = await client
@@ -71,18 +75,26 @@ export default async function Page({ params }) {
       { field: "document.first_publication_date", direction: "desc" },
     ],
   });
-  // const navigation = await client.getSingle("navigation");
-  // const settings = await client.getSingle("settings");
+  const navigation = await client.getSingle("navigation");
+  const settings = await client.getSingle("settings");
 
   const date = prismic.asDate(
     article.data.publishDate || article.first_publication_date
   );
 
   return (
-    <div>
+    <Layout
+      navigation={navigation}
+      withHeaderDivider={false}
+      withProfile={false}
+      settings={settings}
+    >
       <Bounded>
-        <Link href="/" className="font-semibold tracking-tight text-slate-400">
-          &larr; Back to articles
+        <Link
+          href="/news"
+          className="font-semibold tracking-tight text-slate-400"
+        >
+          &larr; Back to news
         </Link>
       </Bounded>
       <article>
@@ -113,7 +125,7 @@ export default async function Page({ params }) {
           </div>
         </Bounded>
       )}
-    </div>
+    </Layout>
   );
 }
 

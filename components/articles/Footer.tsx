@@ -6,8 +6,10 @@ import { Bounded } from "./Bounded";
 import { Heading } from "./Heading";
 import { HorizontalDivider } from "./HorizontalDivider";
 import { PrismicRichText } from "./PrismicRichText";
+import { SettingsDocument } from "@/prismicio-types";
+import { ReactNode } from "react";
 
-function SignUpForm({ settings }) {
+function SignUpForm({ settings }: { settings: SettingsDocument<string> }) {
   return (
     <div className="px-4">
       <form
@@ -18,14 +20,15 @@ function SignUpForm({ settings }) {
         {prismic.isFilled.richText(settings.data.newsletterDisclaimer) && (
           <div className="text-center font-serif tracking-tight text-slate-500">
             <PrismicRichText
+              //@ts-ignore
               field={settings.data.newsletterDescription}
               components={{
-                heading1: ({ children }) => (
+                heading1: ({ children }: { children: ReactNode }) => (
                   <Heading as="h2" className="mb-4 last:mb-0">
                     {children}
                   </Heading>
                 ),
-                paragraph: ({ children }) => (
+                paragraph: ({ children }: { children: ReactNode }) => (
                   <p className="mb-4 italic last:mb-0">{children}</p>
                 ),
               }}
@@ -63,7 +66,13 @@ function SignUpForm({ settings }) {
   );
 }
 
-export function Footer({ withSignUpForm = true, settings }) {
+export function Footer({
+  withSignUpForm = true,
+  settings,
+}: {
+  withSignUpForm?: boolean;
+  settings: SettingsDocument<string>;
+}) {
   return (
     <Bounded as="footer">
       <div className="grid grid-cols-1 justify-items-center gap-24">

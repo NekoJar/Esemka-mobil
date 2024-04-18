@@ -257,19 +257,19 @@ interface SettingsDocumentData {
   /**
    * Name field in *Settings*
    *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
+   * - **Field Type**: Title
+   * - **Placeholder**: Name of your blog (e.g. your name)
    * - **API ID Path**: settings.name
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  name: prismic.RichTextField;
+  name: prismic.TitleField;
 
   /**
    * Description field in *Settings*
    *
    * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Short description of your blog
    * - **API ID Path**: settings.description
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
@@ -291,7 +291,7 @@ interface SettingsDocumentData {
    * Newsletter Description field in *Settings*
    *
    * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Text above the sign up form
    * - **API ID Path**: settings.newsletterDescription
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
@@ -302,7 +302,7 @@ interface SettingsDocumentData {
    * Newsletter Disclaimer field in *Settings*
    *
    * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Small text below sign up form
    * - **API ID Path**: settings.newsletterDisclaimer
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title

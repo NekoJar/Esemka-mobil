@@ -45,17 +45,19 @@
     "components/products/Transition.jsx",
     "components/news/PlainCard.jsx",
     "components/getChars.jsx",
-    "components/articles/Heading.jsx",
+    "components/articles/Heading.tsx",
     "components/RichText.jsx",
-    "app/[uid]/page.jsx",
+    "app/[uid]/page.tsx",
     "lib/findFirstImage.js",
     "lib/getExcerpt.js",
-    "app/(pages)/news/[uid]/page.jsx",
+    "app/(pages)/news/[uid]/page.tsx",
     "slices/Quote/index.jsx",
     "slices/Image/index.jsx",
     "slices/Text/index.jsx",
     "slices/index.ts",
-    "app/slice-simulator/page.tsx"
+    "app/slice-simulator/page.tsx",
+    "components/articles/Article.tsx",
+    "components/ui/AnimatedButton.tsx"
   ],
   "exclude": ["node_modules"]
 }

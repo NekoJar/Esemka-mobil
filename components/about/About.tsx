@@ -6,7 +6,7 @@ import DescriptionBottom from "./DescriptionBottom";
 
 export const About = () => {
   return (
-    <div className="pt-32">
+    <div className="pt-32 pb-96">
       <div className="px-20 text-white/60">
         <p className={` uppercase text-[16rem] font-extrabold font-montserrat`}>
           History

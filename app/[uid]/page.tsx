@@ -1,12 +1,19 @@
 import * as prismic from "@prismicio/client";
 import { SliceZone } from "@prismicio/react";
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 import { Layout } from "@/components/articles/Layout";
 
-export async function generateMetadata({ params }) {
+type Params = { uid: string };
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Params;
+}): Promise<Metadata> {
   const client = createClient();
   const settings = await client.getSingle("settings");
   const page = await client
@@ -19,17 +26,17 @@ export async function generateMetadata({ params }) {
     )}`,
     description: page.data.meta_description,
     openGraph: {
-      title: page.data.meta_title,
+      title: page.data.meta_title || "",
       images: [
         {
-          url: page.data.meta_image.url,
+          url: page.data.meta_image.url || "",
         },
       ],
     },
   };
 }
 
-export default async function Page({ params }) {
+export default async function Page({ params }: { params: Params }) {
   const client = createClient();
 
   const page = await client

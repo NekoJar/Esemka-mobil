@@ -7,8 +7,9 @@ import { findFirstImage } from "@/lib/findFirstImage";
 import { dateFormatter } from "@/lib/dateFormatter";
 
 import { Heading } from "./Heading";
+import { ArticleDocument } from "@/prismicio-types";
 
-export function Article({ article }) {
+export function Article({ article }: { article: ArticleDocument<string> }) {
   const featuredImage =
     (prismic.isFilled.image(article.data.featuredImage) &&
       article.data.featuredImage) ||
@@ -20,13 +21,13 @@ export function Article({ article }) {
 
   return (
     <li className="grid grid-cols-1 items-start gap-6 md:grid-cols-3 md:gap-8">
-      <PrismicNextLink document={article} tabIndex="-1">
-        <div className="aspect-h-11 aspect-w-3 relative bg-gray-100">
+      <PrismicNextLink document={article} tabIndex={-1}>
+        <div className="aspect-h-3 aspect-w-4 relative bg-gray-100">
           {prismic.isFilled.image(featuredImage) && (
             <PrismicNextImage
               field={featuredImage}
+              fill={true}
               className="object-cover"
-              sizes="50vw"
             />
           )}
         </div>

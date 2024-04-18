@@ -13,9 +13,10 @@ import Side from "../sidebar/Side";
 import { SideBackground, background } from "../../utils/anim";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 
 const NavBar = () => {
+  const searchParams = useSearchParams();
   const [isOpenProducts, setOpenProducts] = useState(false);
   const pathname = usePathname();
   const [isActive, setIsActive] = useState(false);
@@ -60,7 +61,7 @@ const NavBar = () => {
 
   return (
     <>
-      <div className="flex flex-col absolute w-[100%] z-[2]">
+      <div className="flex flex-col absolute w-[100vw] z-[2]">
         <div
           className={`flex items-center gap-8 p-6 px-16 justify-between border-b border-zinc-900
           ${
@@ -76,7 +77,7 @@ const NavBar = () => {
               alt="esemka-logo"
               width={70}
               height={70}
-              className="grayscale contrast-200 brightness-200 invert hover:grayscale-0 hover:brightness-100 hover:contrast-100 hover:invert-0 transition-all duration-500"
+              className="grayscale contrast-200 brightness-200 invert hover:grayscale hover:brightness-100 hover:contrast-100 hover:invert-0 transition-all duration-500"
             />
           </Link>
           <ul className="flex font-extralight">
@@ -137,7 +138,7 @@ const NavBar = () => {
           variants={background}
           initial="initial"
           animate={isOpenProducts ? "open" : "closed"}
-          className="bg-black/50 h-[100%] w-[100%] left-0 top-[100%]"
+          className="bg-black/50 h-[100vh] w-[100vw] left-0 top-[100%]"
           onClick={onOpenProducts}
         ></motion.div>
       </div>

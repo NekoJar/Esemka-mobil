@@ -6,12 +6,24 @@ import { PrismicNextLink, PrismicNextImage } from "@prismicio/next";
 import { Bounded } from "./Bounded";
 import { Heading } from "./Heading";
 import { HorizontalDivider } from "./HorizontalDivider";
+import { NavigationDocument, SettingsDocument } from "@/prismicio-types";
+import { ReactNode } from "react";
 
-const Profile = ({ name, description, profilePicture }) => {
+interface SettingsDocumentData {
+  name: prismic.TitleField;
+  description: prismic.RichTextField;
+  profilePicture: prismic.ImageField<never>;
+}
+
+const Profile = ({
+  name,
+  description,
+  profilePicture,
+}: SettingsDocumentData) => {
   return (
     <div className="px-4">
       <div className="grid max-w-lg grid-cols-1 justify-items-center gap-8">
-        <PrismicNextLink href="/" tabIndex="-1">
+        <PrismicNextLink href="/" tabIndex={-1}>
           <div className="relative h-40 w-40 overflow-hidden rounded-full bg-slate-300">
             {prismic.isFilled.image(profilePicture) && (
               <PrismicNextImage
@@ -45,7 +57,7 @@ const Profile = ({ name, description, profilePicture }) => {
   );
 };
 
-const NavItem = ({ children }) => {
+const NavItem = ({ children }: { children: ReactNode }) => {
   return (
     <li className="font-semibold tracking-tight text-slate-800">{children}</li>
   );
@@ -56,11 +68,16 @@ export const Header = ({
   withProfile = true,
   navigation,
   settings,
+}: {
+  withDivider?: boolean;
+  withProfile?: boolean;
+  navigation: NavigationDocument<string>;
+  settings: SettingsDocument<string>;
 }) => {
   return (
     <Bounded as="header">
       <div className="grid grid-cols-1 justify-items-center gap-20">
-        {/* <nav>
+        <nav>
           <ul className="flex flex-wrap justify-center gap-10">
             <NavItem>
               <Link href="/">
@@ -75,7 +92,7 @@ export const Header = ({
               </NavItem>
             ))}
           </ul>
-        </nav> */}
+        </nav>
         {withProfile && (
           <Profile
             name={settings.data.name}

@@ -74,12 +74,6 @@
     font-display: swap;
     src: url("../public/fonts/AVGARDD_2.woff") format("woff");
   } */
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
 }
 
 body {

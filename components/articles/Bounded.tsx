@@ -1,11 +1,19 @@
 import clsx from "clsx";
+import { ReactNode } from "react";
+
+type BoundedProps = {
+  as?: keyof JSX.IntrinsicElements;
+  size?: "small" | "base" | "wide" | "widest";
+  className?: string;
+  children: ReactNode;
+};
 
 export function Bounded({
   as: Comp = "div",
   size = "base",
   className,
   children,
-}) {
+}: BoundedProps) {
   return (
     <Comp className={clsx("px-4 py-8 md:px-6 md:py-10 lg:py-12", className)}>
       <div
@@ -14,7 +22,7 @@ export function Bounded({
           size === "small" && "max-w-xl",
           size === "base" && "max-w-3xl",
           size === "wide" && "max-w-4xl",
-          size === "widest" && "max-w-6xl",
+          size === "widest" && "max-w-6xl"
         )}
       >
         {children}

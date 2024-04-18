@@ -7,6 +7,15 @@ import { Article } from "@/components/articles/Article";
 import React from "react";
 import { Layout } from "@/components/articles/Layout";
 
+export async function generateMetadata() {
+  const client = createClient();
+  const settings = await client.getSingle("settings");
+
+  return {
+    title: prismic.asText(settings.data.name),
+  };
+}
+
 const page = async () => {
   const client = createClient();
 
@@ -16,19 +25,23 @@ const page = async () => {
       { field: "document.first_publication_date", direction: "desc" },
     ],
   });
-  //   const navigation = await client.getSingle("navigation");
-  //   const settings = await client.getSingle("settings");
+  const navigation = await client.getSingle("navigation");
+  const settings = await client.getSingle("settings");
 
   return (
-    <div>
-      <Bounded size="default">
+    <Layout
+      withHeaderDivider={false}
+      navigation={navigation}
+      settings={settings}
+    >
+      <Bounded size="widest">
         <ul className="grid grid-cols-1 gap-16">
           {articles.map((article) => (
             <Article key={article.id} article={article} />
           ))}
         </ul>
       </Bounded>
-    </div>
+    </Layout>
   );
 };
 

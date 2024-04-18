@@ -34,8 +34,8 @@
         "config": {
           "label": "Featured Image",
           "constraint": {
-            "width": 2000,
-            "height": 1500
+            "width": 600,
+            "height": 480
           },
           "thumbnails": []
         }

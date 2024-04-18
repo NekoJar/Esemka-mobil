@@ -1,6 +1,6 @@
 "use client";
 import { useScroll, useTransform, motion } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Lenis from "@studio-freight/lenis";
 import { projects } from "../../utils/data";
 import Card from "./Card";
@@ -10,6 +10,7 @@ import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
 export function News() {
+  const [isHovered, setIsHovered] = useState(false);
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
@@ -60,19 +61,36 @@ export function News() {
         })}
       </div>
       <div className="flex items-center justify-center -mt-[24rem] pb-96">
-        <Link href="/news">
-          <Button
-            variant="outlineNoBg"
-            className="rounded-full p-8 border-black/35"
-          >
+        <Button
+          variant="outlineNoBgRounded"
+          className="p-6"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          <Link href="/news">
             <p className="flex gap-4 items-center">
               More News
               <span>
-                <ArrowUpRight />
+                <ArrowUpRight
+                  size={isHovered ? "17px" : "15px"}
+                  style={
+                    isHovered
+                      ? {
+                          transform: `translate(4px, -2px)`,
+                          transition: "all",
+                          transitionDuration: "350ms",
+                        }
+                      : {
+                          transform: `translate(0px, 0px)`,
+                          transition: "all",
+                          transitionDuration: "350ms",
+                        }
+                  }
+                />
               </span>
             </p>
-          </Button>
-        </Link>
+          </Link>
+        </Button>
       </div>
     </div>
   );

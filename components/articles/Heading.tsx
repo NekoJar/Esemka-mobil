@@ -1,11 +1,19 @@
 import clsx from "clsx";
+import { ReactNode } from "react";
+
+type HeadingProps = {
+  as?: keyof JSX.IntrinsicElements;
+  size?: "xl" | "2xl" | "3xl" | "4xl";
+  children: ReactNode;
+  className?: string;
+};
 
 export const Heading = ({
   as: Comp = "h1",
   size = "4xl",
   children,
   className,
-}) => {
+}: HeadingProps) => {
   return (
     <Comp
       className={clsx(

@@ -13,10 +13,10 @@ export default function Home() {
     <TransitionProvider>
       <main className="bg-black">
         <Hero />
-        <Products />
         <MottoText />
         <ZoomParallax />
         <About />
+        <Products />
         <News />
         <div className="bg-zinc-800 py-10 px-16 ">
           <Footer />
