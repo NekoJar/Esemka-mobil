@@ -13,10 +13,9 @@ import Side from "../sidebar/Side";
 import { SideBackground, background } from "../../utils/anim";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 const NavBar = () => {
-  const searchParams = useSearchParams();
   const [isOpenProducts, setOpenProducts] = useState(false);
   const pathname = usePathname();
   const [isActive, setIsActive] = useState(false);
