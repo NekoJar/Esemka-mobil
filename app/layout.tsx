@@ -25,7 +25,6 @@ export default function RootLayout({
       >
         <Providers>
           <SmoothScroll>
-            <NavBar />
             {children}
             <PrismicPreview repositoryName={repositoryName} />
           </SmoothScroll>

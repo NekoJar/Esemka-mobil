@@ -6,19 +6,19 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const projects = [
   {
-    title: "Salar de Atacama",
+    title: "Esemka mobil",
     src: "Esemka_Bima.jpg",
   },
   {
-    title: "Valle de la luna",
+    title: "Profesionalitas yang tinggi",
     src: "Factory.jpg",
   },
   {
-    title: "Miscanti Lake",
+    title: "Pemuda Pemudi Tangguh",
     src: "worker.jpg",
   },
   {
-    title: "Miniques Lagoons",
+    title: "Untuk indonesia yang lebih maju",
     src: "mobil_bak.jpg",
   },
 ];

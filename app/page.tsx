@@ -7,10 +7,12 @@ import { Products } from "../components/products/Products";
 import { Footer } from "../components/footer/Footer";
 import { TransitionProvider } from "../components/products/TransitionContext";
 import { MottoText } from "@/components/MottoText";
+import NavBar from "@/components/navbar/NavBar";
 
 export default function Home() {
   return (
-    <TransitionProvider>
+    <>
+      <NavBar className="text-white" />
       <main className="bg-black">
         <Hero />
         <MottoText />
@@ -18,10 +20,9 @@ export default function Home() {
         <About />
         <Products />
         <News />
-        <div className="bg-zinc-800 py-10 px-16 ">
-          <Footer />
-        </div>
+
+        <Footer />
       </main>
-    </TransitionProvider>
+    </>
   );
 }

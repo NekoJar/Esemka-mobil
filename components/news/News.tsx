@@ -1,21 +1,24 @@
 "use client";
-import { useScroll, useTransform, motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
 import Lenis from "@studio-freight/lenis";
+import { useScroll, useTransform } from "framer-motion";
+import { useEffect, useRef } from "react";
 import { projects } from "../../utils/data";
+import { LinkButton } from "../ui/LinkButton";
 import Card from "./Card";
-import { PlainCard } from "./PlainCard";
-import { Button } from "../ui/button";
-import { ArrowUpRight } from "lucide-react";
-import Link from "next/link";
 
 export function News() {
-  const [isHovered, setIsHovered] = useState(false);
   const container = useRef(null);
-  const { scrollYProgress } = useScroll({
+  const { scrollYProgress: scrollYProgressCard } = useScroll({
     target: container,
     offset: ["start start", "end end"],
   });
+
+  const { scrollYProgress: scrollYProgressHeight } = useScroll({
+    target: container,
+    offset: ["start end", "end start"],
+  });
+
+  const height = useTransform(scrollYProgressHeight, [0, 0.9], [50, 0]);
 
   useEffect(() => {
     const lenis = new Lenis();
@@ -30,8 +33,8 @@ export function News() {
   });
 
   return (
-    <div className="bg-neutral-100">
-      <div className="p-8 text-black -mb-24">
+    <div className="bg-neutral-100 relative z-[1]">
+      <div className="p-8 text-black pt-[30rem] -mb-24">
         <p className="uppercase text-[16rem] flex">News</p>
         <div className="flex justify-between pt-14 -mt-16 border-t-[1px] border-black">
           <ul className="italic lowercase space-x-96 flex">
@@ -43,55 +46,31 @@ export function News() {
         </div>
       </div>
       <div ref={container} className="py-96 ">
-        {/* <PlainCard /> */}
         {projects.map((project, i) => {
           const targetScale = 1 - (projects.length - i) * 0.05;
           return (
             //@ts-ignore
-
             <Card
               key={`p_${i}`}
               i={i + 1}
               {...project}
-              progress={scrollYProgress}
+              progress={scrollYProgressCard}
               range={[i * 0.25, 1]}
               targetScale={targetScale}
             />
           );
         })}
       </div>
-      <div className="flex items-center justify-center -mt-[24rem] pb-96">
-        <Button
-          variant="outlineNoBgRounded"
-          className="p-6"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
-          <Link href="/news">
-            <p className="flex gap-4 items-center">
-              More News
-              <span>
-                <ArrowUpRight
-                  size={isHovered ? "17px" : "15px"}
-                  style={
-                    isHovered
-                      ? {
-                          transform: `translate(4px, -2px)`,
-                          transition: "all",
-                          transitionDuration: "350ms",
-                        }
-                      : {
-                          transform: `translate(0px, 0px)`,
-                          transition: "all",
-                          transitionDuration: "350ms",
-                        }
-                  }
-                />
-              </span>
-            </p>
-          </Link>
-        </Button>
+      <div className="flex items-center justify-center -mt-[24rem]">
+        <LinkButton href="/news" className="border-black text-black">
+          <p>More News</p>
+        </LinkButton>
       </div>
+      <div
+        className="bg-neutral-100 relative z-[1] w-[100vw] p-40"
+        //@ts-ignore
+        style={{ height }}
+      ></div>
     </div>
   );
 }

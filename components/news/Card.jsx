@@ -3,7 +3,6 @@ import Image from "next/image";
 import styles from "./Card.module.scss";
 import { useTransform, motion, useScroll, MotionValue } from "framer-motion";
 import { useRef } from "react";
-import { PlainCard } from "./PlainCard";
 
 const Card = ({
   i,

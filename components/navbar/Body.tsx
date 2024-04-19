@@ -2,35 +2,25 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import styles from "./Body.module.scss";
 import { blur, translate } from "../../utils/anim";
+import { Dispatch, SetStateAction } from "react";
+// import { getChars } from "../ui/GetChars";
 
-export default function Body({
+export function Body({
   links,
   selectedLink,
   setSelectedLink,
   onOpenProducts,
+}: {
+  links: Array<any>;
+  selectedLink: any;
+  setSelectedLink: Dispatch<
+    SetStateAction<{ isActive: boolean; index: number }>
+  >;
+  onOpenProducts: any;
 }) {
-  const getChars = (word) => {
-    let chars = [];
-    word.split("").forEach((char, i) => {
-      chars.push(
-        <motion.span
-          custom={[i * 0.02, (word.length - i) * 0.01]}
-          variants={translate}
-          initial="initial"
-          animate="enter"
-          exit="exit"
-          key={char + i}
-        >
-          {char}
-        </motion.span>
-      );
-    });
-    return chars;
-  };
-
   return (
     <div className={styles.body}>
-      {links.map((link, index) => {
+      {links.map((link: any, index: any) => {
         const { title, href } = link;
         return (
           <Link key={`l_${index}`} href={href}>
@@ -49,7 +39,7 @@ export default function Body({
                   : "closed"
               }
             >
-              {getChars(title)}
+              {/* {getChars(title)} */}
             </motion.p>
           </Link>
         );

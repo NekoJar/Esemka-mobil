@@ -11,6 +11,7 @@ import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 import { notFound } from "next/navigation";
 import { ArticleDocument } from "@/prismicio-types";
+import NavBar from "@/components/navbar/NavBar";
 
 type Params = { uid: string };
 
@@ -83,49 +84,47 @@ export default async function Page({ params }: { params: Params }) {
   );
 
   return (
-    <Layout
-      navigation={navigation}
-      withHeaderDivider={false}
-      withProfile={false}
-      settings={settings}
-    >
-      <Bounded>
-        <Link
-          href="/news"
-          className="font-semibold tracking-tight text-slate-400"
-        >
-          &larr; Back to news
-        </Link>
-      </Bounded>
-      <article>
-        <Bounded className="pb-0">
-          <h1 className="mb-3 text-3xl font-semibold tracking-tighter text-slate-800 md:text-4xl">
-            <PrismicText field={article.data.title} />
-          </h1>
-          <p className="font-serif italic tracking-tighter text-slate-500">
-            {dateFormatter.format(date)}
-          </p>
+    <>
+      <NavBar />
+      <div className="p-16">
+        <Bounded size="widest">
+          <Link
+            href="/news"
+            className="font-semibold tracking-tight text-slate-400"
+          >
+            &larr; Back to news
+          </Link>
         </Bounded>
-        <SliceZone slices={article.data.slices} components={components} />
-      </article>
-      {latestArticles.length > 0 && (
-        <Bounded>
-          <div className="grid grid-cols-1 justify-items-center gap-16 md:gap-24">
-            <HorizontalDivider />
-            <div className="w-full">
-              <Heading size="2xl" className="mb-10">
-                Latest articles
-              </Heading>
-              <ul className="grid grid-cols-1 gap-12">
-                {latestArticles.map((article) => (
-                  <LatestArticle key={article.id} article={article} />
-                ))}
-              </ul>
+        <article>
+          <Bounded className="pb-0">
+            <h1 className="mb-3 text-3xl font-semibold tracking-tighter text-slate-800 md:text-4xl">
+              <PrismicText field={article.data.title} />
+            </h1>
+            <p className="font-serif italic tracking-tighter text-slate-500">
+              {dateFormatter.format(date)}
+            </p>
+          </Bounded>
+          <SliceZone slices={article.data.slices} components={components} />
+        </article>
+        {latestArticles.length > 0 && (
+          <Bounded>
+            <div className="grid grid-cols-1 justify-items-center gap-16 md:gap-24">
+              <HorizontalDivider />
+              <div className="w-full">
+                <Heading size="2xl" className="mb-10">
+                  Latest articles
+                </Heading>
+                <ul className="grid grid-cols-1 gap-12">
+                  {latestArticles.map((article) => (
+                    <LatestArticle key={article.id} article={article} />
+                  ))}
+                </ul>
+              </div>
             </div>
-          </div>
-        </Bounded>
-      )}
-    </Layout>
+          </Bounded>
+        )}
+      </div>
+    </>
   );
 }
 

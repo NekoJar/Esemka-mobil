@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 
 type BoundedProps = {
   as?: keyof JSX.IntrinsicElements;
-  size?: "small" | "base" | "wide" | "widest";
+  size?: "small" | "base" | "wide" | "widest" | "superWide";
   className?: string;
   children: ReactNode;
 };
@@ -22,7 +22,8 @@ export function Bounded({
           size === "small" && "max-w-xl",
           size === "base" && "max-w-3xl",
           size === "wide" && "max-w-4xl",
-          size === "widest" && "max-w-6xl"
+          size === "widest" && "max-w-6xl",
+          size === "superWide" && "max-w-screen-2xl"
         )}
       >
         {children}

@@ -28,7 +28,7 @@
     ".next/types/**/*.ts",
     "app/page.tsx",
     "app/components/ParallaxScroll.jsx",
-    "components/navbar/Body.jsx",
+    "components/navbar/Body.tsx",
     "components/navbar/NavBar.tsx",
     "components/sidebar/Link.jsx",
     "components/MottoText.tsx",
@@ -57,7 +57,7 @@
     "slices/index.ts",
     "app/slice-simulator/page.tsx",
     "components/articles/Article.tsx",
-    "components/ui/AnimatedButton.tsx"
+    "components/ui/LinkButton.tsx"
   ],
   "exclude": ["node_modules"]
 }

@@ -3,7 +3,7 @@ import styles from "./Nav.module.scss";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { height } from "../../utils/anim";
-import Body from "./Body";
+import { Body } from "./Body";
 // import Footer from "./Footer";
 import Image from "./Image";
 import Footer from "./Footer";
