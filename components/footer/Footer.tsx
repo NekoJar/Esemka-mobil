@@ -4,8 +4,16 @@ import { FacebookIcon, Phone, YoutubeIcon } from "lucide-react";
 import esemkaLogo from "@/public/assets/logo-small.png";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import React, { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
+import {
+  animate,
+  motion,
+  useMotionValue,
+  useScroll,
+  useTransform,
+} from "framer-motion";
+import useMeasure from "react-use-measure";
 
 const navItems = [
   {
@@ -13,16 +21,8 @@ const navItems = [
     href: "/",
   },
   {
-    title: "About",
-    href: "#about",
-  },
-  {
     title: "News",
     href: "#news",
-  },
-  {
-    title: "Products",
-    href: "#products",
   },
   {
     title: "Sitemap",
@@ -46,101 +46,112 @@ export const Footer = () => {
   });
   const y = useTransform(scrollYProgress, [0, 1], [-1000, 0]);
 
+  const slides = [
+    { text: "Esemka Mobil" },
+    { text: "Karya anak bangsa" },
+    { text: "+62 2717851400" },
+    { text: "information@esemka.org" },
+    { text: "©2019 - 2024" },
+    { text: "Esemka Mobil" },
+    { text: "Karya anak bangsa" },
+    { text: "+62 2717851400" },
+    { text: "information@esemka.org" },
+    { text: "©2019 - 2024" },
+  ];
+
+  const duplicatedSlides = [...slides, ...slides];
+
   return (
     <div
       ref={container}
-      className="h-[100vh] flex items-center justify-center w-[100vw] "
+      className="h-[100vh] flex items-end justify-center w-[100vw] bg-zinc-900"
     >
       <motion.div style={{ y }} className="text-white">
-        <div className="flex justify-center">
-          <p className="max-w-6xl flex text-center text-xl">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, velit.
-            Illum placeat optio eligendi voluptatum sint expedita, eum eaque
-            soluta corporis, tenetur, numquam modi distinctio dignissimos
-            obcaecati dicta. Unde, corporis!
+        <div className="flex justify-between">
+          <p className="max-w-6xl text-md font-roboto  p-40 text-right gap-4">
+            {navItems.map((nav, i) => (
+              <span className="flex justify-start w-full" key={i}>
+                <Link
+                  href={nav.href}
+                  className=" text-zinc-700 hover:text-zinc-400 hover:-translate-x-2 text-right"
+                >
+                  {nav.title}
+                </Link>
+              </span>
+            ))}
+          </p>
+          <p className="max-w-6xl text-md font-roboto  p-40 text-right gap-4">
+            {navItems.map((nav, i) => (
+              <span className="flex justify-end w-full" key={i}>
+                <Link
+                  href={nav.href}
+                  className=" text-zinc-700 hover:text-zinc-400 hover:-translate-x-2 text-right"
+                >
+                  {nav.title}
+                </Link>
+              </span>
+            ))}
           </p>
         </div>
 
+        <ul className="flex justify-around gap-4 italic relative -mb-2 font-roboto">
+          <li>
+            <a href="https://twitter.com/esemkaindonesia" target="_blank">
+              (X)
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.youtube.com/channel/UCNlpognhK2pJ9tFMhlBHRqA"
+              target="_blank"
+            >
+              (Youtube)
+            </a>
+          </li>
+          <li>
+            <a href="https://web.facebook.com/EsemkaIndonesia/" target="_blank">
+              (Facebook)
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.instagram.com/esemkaindonesia/"
+              target="_blank"
+            >
+              (Instagram)
+            </a>
+          </li>
+        </ul>
         <div>
-          <p className="text-[30rem] uppercase drop-shadow-lg leading-tight text-center">
+          <p className="text-[30rem] uppercase drop-shadow-lg leading-tight text-center relative">
             EsemKa
           </p>
-          <ul className="flex justify-between gap-4">
-            <li>
-              <a href="https://twitter.com/esemkaindonesia" target="_blank">
-                (X)
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.youtube.com/channel/UCNlpognhK2pJ9tFMhlBHRqA"
-                target="_blank"
-              >
-                (Youtube)
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://web.facebook.com/EsemkaIndonesia/"
-                target="_blank"
-              >
-                (Facebook)
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.instagram.com/esemkaindonesia/"
-                target="_blank"
-              >
-                (Instagram)
-              </a>
-            </li>
-          </ul>
         </div>
-
-        {/* <div className="text-white h-full flex justify-between items-center">
-          <div className="flex space-x-4 items-center ">
-            <Link href="/">
-              <Image
-                src={esemkaLogo}
-                alt="esemka-logo"
-                width={100}
-                height={100}
-                className="object-cover saturate-0 contrast-100 brightness-100 invert"
-              />
-            </Link>
-            <div className="space-y-4 ">
-              <div>
-                <p>PT Solo Manufaktur Kreasi</p>
-                <p className="flex items-center gap-2">
-                  <Phone width={20} height={20} />
-                  0271 7851400
-                </p>
+        <div className="relative w-full overflow-hidden">
+          <motion.div
+            className="flex"
+            animate={{
+              x: ["-100%", "0%"],
+              transition: {
+                ease: "linear",
+                duration: 30,
+                repeat: Infinity,
+              },
+            }}
+          >
+            {duplicatedSlides.map((slide, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0"
+                style={{ width: `${100 / slides.length}%` }}
+              >
+                <div className="flex items-center justify-center h-full text-sm italic text-zinc-500 font-roboto text-center">
+                  {slide.text}
+                </div>
               </div>
-              <p className="text-sm font-extralight text-white/70">
-                Jl. Raya Demangan Km 3,5 Sambi, Boyolali Jawa Tengah
-              </p>
-            </div>
-          </div>
-          <div className="flex gap-2 ">
-            <Link href="">
-              <TwitterLogoIcon width={50} height={50} color="white" />
-            </Link>
-            <Link href="">
-              <InstagramLogoIcon width={50} height={50} color="white" />
-            </Link>
-          </div>
+            ))}
+          </motion.div>
         </div>
-        <ul className="flex gap-8 pt-8 mb-3">
-          {navItems.map((nav, i) => (
-            <li key={i}>
-              <Link href={nav.href}>{nav.title}</Link>
-            </li>
-          ))}
-        </ul>
-        <p className="text-xs text-zinc-600 font-extralight">
-          ©2019 - 2024 PT Solo Manufaktur Kreasi. All Rights Reserved.
-        </p> */}
       </motion.div>
     </div>
   );

@@ -12,7 +12,7 @@ const phrases = [
 
 export default function Description() {
   return (
-    <div className="relative text-white/80 text-[2.5vw] uppercase mt-[10vw] mr-[10vw] text-right">
+    <div className="relative text-white/80 text-[2.5vw] uppercase mt-[10vw] mr-[10vw] text-right font-roboto">
       {phrases.map((phrase, index) => {
         return <AnimatedText key={index}>{phrase}</AnimatedText>;
       })}

@@ -14,7 +14,7 @@ const phrases = [
 
 export default function DescriptionBottom() {
   return (
-    <div className="relative text-white/60 text-[2.5vw] uppercase mt-[30vw] ml-[10vw] ">
+    <div className="relative text-white/60 text-[2.5vw] uppercase mt-[30vw] ml-[10vw] font-roboto">
       {phrases.map((phrase, index) => {
         return <AnimatedText key={index}>{phrase}</AnimatedText>;
       })}

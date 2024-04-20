@@ -74,19 +74,19 @@ const NavBar = ({ className }: { className?: string }) => {
               className="grayscale brightness-200"
             />
           </Link>
-          <ul className="flex font-montserrat">
+          <ul className="flex font-roboto">
             <li>
               <Button
                 variant="link"
-                className="decoration-transparent font-semibold text-md hover:text-transparent hover:text-zinc-400 transition-colors duration-700"
+                className="decoration-transparent font-extralight text-md hover:text-transparent hover:text-zinc-200 hover:-translate-y-1  "
               >
-                About
+                <Link href="/">Home</Link>
               </Button>
             </li>
             <li>
               <Button
                 variant="link"
-                className=" decoration-transparent font-semibold text-md hover:text-transparent hover:text-zinc-400 transition-colors duration-700"
+                className=" decoration-transparent font-extralight text-md hover:text-transparent hover:text-zinc-200 hover:-translate-y-1  "
               >
                 <Link href="/news">News</Link>
               </Button>
@@ -94,9 +94,9 @@ const NavBar = ({ className }: { className?: string }) => {
             <li>
               <Button
                 variant="link"
-                className=" decoration-transparent font-semibold text-md hover:text-transparent hover:text-zinc-400 transition-colors duration-700"
+                className=" decoration-transparent font-extralight text-md hover:text-transparent hover:text-zinc-200 hover:-translate-y-1  "
               >
-                <Link href="/products">Products</Link>
+                <Link href="#products">Products</Link>
               </Button>
             </li>
           </ul>
@@ -116,7 +116,7 @@ const NavBar = ({ className }: { className?: string }) => {
           onClick={onOpenProducts}
         ></motion.div>
       </div>
-      <div ref={button} className="headerButtonContainer">
+      <div ref={button} className="headerButtonContainer relative z-[3]">
         <Button
           variant="link"
           onClick={() => {
