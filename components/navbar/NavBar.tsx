@@ -76,8 +76,8 @@ const NavBar = ({
             <Image
               src={esemkaLogo}
               alt="esemka-logo"
-              width={80}
-              height={80}
+              width={70}
+              height={70}
               className="grayscale brightness-200"
             />
           </Link>
@@ -85,7 +85,7 @@ const NavBar = ({
             <li>
               <Button
                 variant="link"
-                className="decoration-transparent font-extralight text-md hover:text-zinc-300 hover:-translate-y-1  "
+                className="decoration-transparent font-extralight text-md hover:text-zinc-400 hover:-translate-y-1  "
               >
                 <TransitionLink href="/" label="Home" />
               </Button>
@@ -93,7 +93,7 @@ const NavBar = ({
             <li>
               <Button
                 variant="link"
-                className=" decoration-transparent font-extralight text-md hover:text-zinc-300 hover:-translate-y-1  "
+                className=" decoration-transparent font-extralight text-md hover:text-zinc-400 hover:-translate-y-1  "
               >
                 <TransitionLink href="/news" label="News" />
               </Button>
@@ -102,7 +102,7 @@ const NavBar = ({
               <li>
                 <Button
                   variant="link"
-                  className=" decoration-transparent font-extralight text-md hover:text-zinc-300 hover:-translate-y-1  "
+                  className=" decoration-transparent font-extralight text-md hover:text-zinc-400 hover:-translate-y-1  "
                 >
                   <Link href="#products">Products</Link>
                 </Button>
@@ -136,7 +136,9 @@ const NavBar = ({
           <div className={`burger ${isActive ? "burgerActive" : ""}`}></div>
         </Button>
       </div>
-      <AnimatePresence mode="wait">{isActive && <Side />}</AnimatePresence>
+      <AnimatePresence mode="wait">
+        {isActive && <Side withProducts={withProducts} />}
+      </AnimatePresence>
     </>
   );
 };

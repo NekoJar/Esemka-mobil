@@ -21,9 +21,11 @@ const navItems = [
   },
 ];
 
-export default function Side() {
+export default function Side({ withProducts }: { withProducts?: boolean }) {
   const pathname = usePathname();
   const [selectedIndicator, setSelectedIndicator] = useState(pathname);
+  const navItemsWithProducts = navItems;
+  const navItemsWithoutProducts = navItems.slice(0, 2);
 
   return (
     <motion.div
@@ -43,16 +45,27 @@ export default function Side() {
           <div className={styles.header}>
             <p>Navigation</p>
           </div>
-          {navItems.map((data, index) => {
-            return (
-              <SideLink
-                key={index}
-                data={{ ...data, index }}
-                isActive={selectedIndicator == data.href}
-                setSelectedIndicator={setSelectedIndicator}
-              ></SideLink>
-            );
-          })}
+          {withProducts
+            ? navItemsWithProducts.map((data, index) => {
+                return (
+                  <SideLink
+                    key={index}
+                    data={{ ...data, index }}
+                    isActive={selectedIndicator == data.href}
+                    setSelectedIndicator={setSelectedIndicator}
+                  ></SideLink>
+                );
+              })
+            : navItemsWithoutProducts.map((data, index) => {
+                return (
+                  <SideLink
+                    key={index}
+                    data={{ ...data, index }}
+                    isActive={selectedIndicator == data.href}
+                    setSelectedIndicator={setSelectedIndicator}
+                  ></SideLink>
+                );
+              })}
         </div>
       </div>
       <Curve />
