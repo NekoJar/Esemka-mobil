@@ -1,3 +1,4 @@
+"use client";
 import { send } from "@/app/api/send/sendEmail";
 import React, { useRef } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -10,7 +11,13 @@ import { toast } from "sonner";
 import { Toaster } from "./ui/sonner";
 import { dateFormatter } from "@/lib/dateFormatter";
 
-export const BookingForm = ({ title }: { title: string }) => {
+export const BookingForm = ({
+  title,
+  colorProduct,
+}: {
+  title: string;
+  colorProduct: string;
+}) => {
   const formRef = useRef<HTMLFormElement>(null);
 
   const handleSubmitClient = async (formData: FormData) => {
@@ -36,6 +43,8 @@ export const BookingForm = ({ title }: { title: string }) => {
     >
       <div className="border-b-[1px] space-y-4 pb-4 mb-6">
         <input name="productName" value={title} hidden />
+        <input name="colorProduct" value={colorProduct} hidden />
+
         <p className=" text-lg text-white/70">Colour</p>
         <Button
           variant="outlineNoBg"

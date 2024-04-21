@@ -20,6 +20,7 @@ interface EmailFormProps {
   senderAddress: string;
   senderDate: string;
   productName: string;
+  colorProduct: string;
 }
 
 export default function EmailForm({
@@ -29,6 +30,7 @@ export default function EmailForm({
   senderName,
   senderDate,
   productName,
+  colorProduct,
 }: EmailFormProps) {
   return (
     <Html>
@@ -41,6 +43,7 @@ export default function EmailForm({
               <Text className="text-bold">New booking from{senderEmail}!</Text>
               <br></br>
               <Text>{productName}</Text>
+              <Text>{colorProduct}</Text>
               <Text>{senderName}</Text>
               <Text>{senderAddress}</Text>
               <Text>{senderDate}</Text>

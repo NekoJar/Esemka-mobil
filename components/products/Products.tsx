@@ -1,11 +1,7 @@
 "use client";
 import bima12 from "@/public/assets/Bima-1-2-transparent.png";
 import bima13 from "@/public/assets/Bima-1-3-transparent.png";
-import { ArrowUpRight, ChevronRight, Dot, DotIcon } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import { Button } from "../ui/button";
-import { useEffect, useRef, useState } from "react";
+import { PDFDownloadLink, Document, Page } from "@react-pdf/renderer";
 import {
   motion,
   MotionStyle,
@@ -17,16 +13,19 @@ import {
   useTransform,
   useVelocity,
 } from "framer-motion";
-import { LinkButton } from "../ui/LinkButton";
-import { AnimatedText } from "../ui/AnimatedText";
-import { slideUp } from "@/utils/anim";
-import Tire from "@/public/tire.svg";
+import { File } from "lucide-react";
+import Image from "next/image";
+import { useRef } from "react";
+import { Button } from "../ui/button";
 import { GetChars } from "../ui/GetChars";
-import { wrap } from "@motionone/utils";
+import { LinkButton } from "../ui/LinkButton";
+import Link from "next/link";
 
 export const Products = () => {
   const title = useRef(null);
   const products = useRef(null);
+  const bima12pdf = "";
+
   const isInView = useInView(title, { margin: "1%" });
   const isInViewProducts = useInView(products, { margin: "20%" });
 
@@ -65,8 +64,6 @@ export const Products = () => {
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]);
 
   const motionStyle: MotionStyle = { x };
-
-  const animationDuration = velocityFactor;
 
   return (
     <section
@@ -111,9 +108,26 @@ export const Products = () => {
                   className="uppercase"
                 />
                 <div className="flex items-center justify-between">
-                  <LinkButton href="/products/bima-1-2">
-                    <p>Learn More</p>
-                  </LinkButton>
+                  <div className="flex items-center gap-4">
+                    <LinkButton href="/products/bima-1-2">
+                      <p>Book Now</p>
+                    </LinkButton>
+                    <Button
+                      variant="outlineRounded"
+                      className="bg-zinc-700 text-zinc-200 p-6"
+                    >
+                      <a
+                        href="./Brochure-bima-1-2.pdf"
+                        download="Brochure Bima 1.2"
+                        className="flex gap-2 items-center"
+                      >
+                        Brochure
+                        <span>
+                          <File />
+                        </span>
+                      </a>
+                    </Button>
+                  </div>
                   <p className="text-sm font-extralight italic">(2019)</p>
                 </div>
               </div>
@@ -124,9 +138,26 @@ export const Products = () => {
                   className="uppercase"
                 />
                 <div className="flex items-center justify-between">
-                  <LinkButton href="/products/bima-1-2">
-                    <p>Learn More</p>
-                  </LinkButton>
+                  <div className="flex items-center gap-4">
+                    <LinkButton href="/products/bima-1-2">
+                      <p>Book Now</p>
+                    </LinkButton>
+                    <Button
+                      variant="outlineRounded"
+                      className="bg-zinc-700 text-zinc-200 p-6"
+                    >
+                      <a
+                        href="./Brochure-bima-1-3.pdf"
+                        download="Brochure Bima 1.3"
+                        className="flex gap-2 items-center"
+                      >
+                        Brochure
+                        <span>
+                          <File />
+                        </span>
+                      </a>
+                    </Button>
+                  </div>
                   <p className="text-sm font-extralight italic">(2019)</p>
                 </div>
               </div>

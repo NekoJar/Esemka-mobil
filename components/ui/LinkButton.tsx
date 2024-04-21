@@ -21,7 +21,7 @@ export const LinkButton = ({
     <Button
       variant="outlineNoBgRounded"
       className={clsx(
-        "border-zinc-400 text-zinc-400 p-6 hover:border-black hover:text-black transition-colors duration-100",
+        "border-zinc-400 text-zinc-400 p-6 hover:border-zinc-600 hover:text-zinc-600 transition-colors duration-100",
         className
       )}
       onMouseEnter={() => setIsHovered(true)}

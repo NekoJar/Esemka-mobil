@@ -28,34 +28,34 @@ const NavBar = ({ className }: { className?: string }) => {
     setOpenProducts(!isOpenProducts);
   };
 
-  useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.to(button.current, {
-      scrollTrigger: {
-        trigger: document.documentElement,
-        start: 0,
-        end: window.innerHeight,
-        onLeave: () => {
-          gsap.to(button.current, {
-            scale: 1,
-            duration: 0.25,
-            ease: "power1.out",
-          });
-          setOpenProducts(false);
-        },
-        onEnterBack: () => {
-          gsap.to(
-            button.current,
-            // @ts-ignore
-            { scale: 0, duration: 0.25, ease: "power1.out" },
-            setIsActive(false),
-            // @ts-ignore
-            setOpenProducts(false)
-          );
-        },
-      },
-    });
-  }, []);
+  // useLayoutEffect(() => {
+  //   gsap.registerPlugin(ScrollTrigger);
+  //   gsap.to(button.current, {
+  //     scrollTrigger: {
+  //       trigger: document.documentElement,
+  //       start: 0,
+  //       end: window.innerHeight,
+  //       onLeave: () => {
+  //         gsap.to(button.current, {
+  //           scale: 1,
+  //           duration: 0.25,
+  //           ease: "power1.out",
+  //         });
+  //         setOpenProducts(false);
+  //       },
+  //       onEnterBack: () => {
+  //         gsap.to(
+  //           button.current,
+  //           // @ts-ignore
+  //           { scale: 0, duration: 0.25, ease: "power1.out" },
+  //           setIsActive(false),
+  //           // @ts-ignore
+  //           setOpenProducts(false)
+  //         );
+  //       },
+  //     },
+  //   });
+  // }, []);
 
   return (
     <>
@@ -78,7 +78,7 @@ const NavBar = ({ className }: { className?: string }) => {
             <li>
               <Button
                 variant="link"
-                className="decoration-transparent font-extralight text-md hover:text-transparent hover:text-zinc-200 hover:-translate-y-1  "
+                className="decoration-transparent font-extralight text-md hover:text-zinc-300 hover:-translate-y-1  "
               >
                 <Link href="/">Home</Link>
               </Button>
@@ -86,7 +86,7 @@ const NavBar = ({ className }: { className?: string }) => {
             <li>
               <Button
                 variant="link"
-                className=" decoration-transparent font-extralight text-md hover:text-transparent hover:text-zinc-200 hover:-translate-y-1  "
+                className=" decoration-transparent font-extralight text-md hover:text-zinc-300 hover:-translate-y-1  "
               >
                 <Link href="/news">News</Link>
               </Button>
@@ -94,7 +94,7 @@ const NavBar = ({ className }: { className?: string }) => {
             <li>
               <Button
                 variant="link"
-                className=" decoration-transparent font-extralight text-md hover:text-transparent hover:text-zinc-200 hover:-translate-y-1  "
+                className=" decoration-transparent font-extralight text-md hover:text-zinc-300 hover:-translate-y-1  "
               >
                 <Link href="#products">Products</Link>
               </Button>

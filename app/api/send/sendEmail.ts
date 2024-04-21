@@ -11,6 +11,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export const sendEmail = async (formData: FormData) => {
   const productName = formData.get("productName") as string;
+  const colorProduct = formData.get("colorProduct") as string;
   const senderName = formData.get("senderName") as string;
   const senderEmail = formData.get("senderEmail");
   const senderaddress = formData.get("senderAddress") as string;
@@ -38,6 +39,7 @@ export const sendEmail = async (formData: FormData) => {
         senderAddress: senderaddress,
         senderDate: senderDate,
         productName: productName,
+        colorProduct: colorProduct,
       }),
     });
   } catch (error: unknown) {
