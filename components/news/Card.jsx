@@ -1,8 +1,18 @@
 "use client";
+
+import { PrismicText } from "@prismicio/react";
+import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
+import * as prismic from "@prismicio/client";
+
+import { getExcerpt } from "@/lib/getExcerpt";
+import { findFirstImage } from "@/lib/findFirstImage";
+import { dateFormatter } from "@/lib/dateFormatter";
+
 import Image from "next/image";
 import styles from "./Card.module.scss";
 import { useTransform, motion, useScroll, MotionValue } from "framer-motion";
 import { useRef } from "react";
+import { Heading } from "../articles/Heading";
 
 const Card = ({
   i,
@@ -10,10 +20,11 @@ const Card = ({
   description,
   src,
   url,
-  color,
+
   progress,
   range,
   targetScale,
+  article,
 }) => {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -24,25 +35,55 @@ const Card = ({
   const imageScale = useTransform(scrollYProgress, [0, 1], [2, 1]);
   const scale = useTransform(progress, range, [1, targetScale]);
 
+  const featuredImage =
+    (prismic.isFilled.image(article.data.featuredImage) &&
+      article.data.featuredImage) ||
+    findFirstImage(article.data.slices);
+  const date = prismic.asDate(
+    article.data.publishDate || article.first_publication_date
+  );
+  const excerpt = getExcerpt(article.data.slices);
+
+  const color = [
+    { id: 0, name: "#64748b" },
+    { id: 1, name: "#9ca3af" },
+    { id: 2, name: "#71717a" },
+    { id: 3, name: "#a8a29e" },
+  ];
+
   return (
     <>
       <div ref={container} className={styles.cardContainer}>
         <motion.div
           style={{
-            backgroundColor: color,
+            backgroundColor: color[i].name,
             scale,
             top: `calc(-5vh + ${i * 25}px)`,
           }}
           className={styles.card}
         >
-          <h2>{title}</h2>
+          <Heading as="h2">
+            <PrismicNextLink document={article}>
+              <PrismicText field={article.data.title} />
+            </PrismicNextLink>
+          </Heading>
           <div className={styles.body}>
             <div className={styles.description}>
-              <p>{description}</p>
+              <p className="font-serif italic tracking-tighter">
+                {dateFormatter.format(date)}
+              </p>
+              {excerpt && (
+                <p className="font-serif leading-none md:text-md md:leading-relaxed text-zinc-900 font-roboto font-extralight">
+                  {excerpt}
+                </p>
+              )}
               <span>
-                <a href={url} target="_blank">
-                  See more
-                </a>
+                <PrismicNextLink document={article}>
+                  <span className="italic font-roboto font-semibold">
+                    See more
+                  </span>
+                </PrismicNextLink>
+
                 <svg
                   width="22"
                   height="12"
@@ -63,7 +104,13 @@ const Card = ({
                 className={styles.inner}
                 style={{ scale: imageScale }}
               >
-                <Image fill src={`/assets/${src}`} alt="image" />
+                {prismic.isFilled.image(featuredImage) && (
+                  <PrismicNextImage
+                    field={featuredImage}
+                    fill={true}
+                    className="object-cover"
+                  />
+                )}
               </motion.div>
             </div>
           </div>

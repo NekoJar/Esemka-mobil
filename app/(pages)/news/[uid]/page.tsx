@@ -1,16 +1,7 @@
 import * as prismic from "@prismicio/client";
-import { SliceZone } from "@prismicio/react";
-import Link from "next/link";
 
-import { Bounded } from "@/components/articles/Bounded";
-import { Heading } from "@/components/articles/Heading";
-import { HorizontalDivider } from "@/components/articles/HorizontalDivider";
-import { Layout } from "@/components/articles/Layout";
 import { createClient } from "@/prismicio";
-import { components } from "@/slices";
 import { notFound } from "next/navigation";
-import NavBar from "@/components/navbar/NavBar";
-import { RefContainer } from "@/components/RefContainer";
 import { Body } from "./Body";
 
 type Params = { uid: string };
