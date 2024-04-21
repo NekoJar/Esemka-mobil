@@ -1,16 +1,41 @@
 import { send } from "@/app/api/send/sendEmail";
-import React from "react";
+import React, { useRef } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitButton } from "./ui/SubmitButton";
 import { useForm } from "react-hook-form";
 import { bookingFormSchema } from "@/lib/schema";
 import { z } from "zod";
 import { Button } from "./ui/button";
+import { toast } from "sonner";
+import { Toaster } from "./ui/sonner";
+import { dateFormatter } from "@/lib/dateFormatter";
 
-export const BookingForm = () => {
+export const BookingForm = ({ title }: { title: string }) => {
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const handleSubmitClient = async (formData: FormData) => {
+    const response = await send(formData);
+    if (response) {
+      toast.success("Booking sent!", {
+        description:
+          "Booking in progress. Stay tuned for upcoming details regarding your booking.",
+      });
+      //@ts-ignore
+      formRef.current.reset();
+    } else {
+      // fail
+      toast.error("error");
+    }
+  };
+
   return (
-    <form className="mt-4 sm:mt-0 flex flex-col" action={send}>
+    <form
+      className="mt-4 sm:mt-0 flex flex-col"
+      action={handleSubmitClient}
+      ref={formRef}
+    >
       <div className="border-b-[1px] space-y-4 pb-4 mb-6">
+        <input name="productName" value={title} hidden />
         <p className=" text-lg text-white/70">Colour</p>
         <Button
           variant="outlineNoBg"
@@ -90,6 +115,7 @@ export const BookingForm = () => {
           maxLength={5000}
         />
       </div>
+
       <SubmitButton>
         <span className="text-zinc-700">Book Now</span>
       </SubmitButton>

@@ -19,6 +19,7 @@ interface EmailFormProps {
   senderName: string;
   senderAddress: string;
   senderDate: string;
+  productName: string;
 }
 
 export default function EmailForm({
@@ -27,6 +28,7 @@ export default function EmailForm({
   senderAddress,
   senderName,
   senderDate,
+  productName,
 }: EmailFormProps) {
   return (
     <Html>
@@ -36,11 +38,9 @@ export default function EmailForm({
         <Body className="bg-gray-100 text-black">
           <Container>
             <Section className="bg-white borderBlack my-10 px-10 py-4 rounded-md">
-              <Heading className="leading-tight">
-                You received the following message from {senderEmail}
-              </Heading>
-              <Text className="text-bold">New Message!</Text>
+              <Text className="text-bold">New booking from{senderEmail}!</Text>
               <br></br>
+              <Text>{productName}</Text>
               <Text>{senderName}</Text>
               <Text>{senderAddress}</Text>
               <Text>{senderDate}</Text>

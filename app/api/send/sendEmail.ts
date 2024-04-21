@@ -10,12 +10,12 @@ import { toast } from "sonner";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export const sendEmail = async (formData: FormData) => {
+  const productName = formData.get("productName") as string;
   const senderName = formData.get("senderName") as string;
   const senderEmail = formData.get("senderEmail");
   const senderaddress = formData.get("senderAddress") as string;
   const senderDate = formData.get("senderDate") as string;
   const message = formData.get("message") as string;
-  const subject = formData.get("subject");
 
   // simple server-side validation
   if (!validateString(senderEmail, 500)) {
@@ -37,6 +37,7 @@ export const sendEmail = async (formData: FormData) => {
         senderName: senderName,
         senderAddress: senderaddress,
         senderDate: senderDate,
+        productName: productName,
       }),
     });
   } catch (error: unknown) {
@@ -51,5 +52,24 @@ export const sendEmail = async (formData: FormData) => {
 };
 
 export const send = async (formData: FormData) => {
-  const { data, error } = await sendEmail(formData);
+  try {
+    const { data, error } = await sendEmail(formData);
+
+    if (error) {
+      // Handle error case
+      console.error("Error:", error);
+      return { success: false, error };
+    } else {
+      // Form submission successful
+
+      return { success: true };
+    }
+  } catch (error) {
+    // Handle other errors
+    console.error("Error:", error);
+    return {
+      success: false,
+      error: "An error occurred while processing your request.",
+    };
+  }
 };

@@ -4,6 +4,7 @@ import { Footer } from "@/components/footer/Footer";
 import NavBar from "@/components/navbar/NavBar";
 import { RefContainer } from "@/components/RefContainer";
 import { Button } from "@/components/ui/button";
+import { Toaster } from "@/components/ui/sonner";
 import bima12 from "@/public/assets/Bima-1-2-transparent.png";
 import Image from "next/image";
 
@@ -17,6 +18,7 @@ const Bima12Page = () => {
         className="p-32 px-80 bg-gradient-to-b from-zinc-900 from-30% via-zinc-800 via-40% to-zinc-700 h-max relative z-[1]"
         ref={container}
       >
+        <Toaster duration={3000} position="bottom-right" theme="dark" />
         <div className="bg-gradient-to-br from-neutral-400 to-neutral-500 p-12 flex items-center justify-between rounded-xl pl-40 pr-10 gap-4">
           <Image
             src={bima12}
@@ -31,7 +33,7 @@ const Bima12Page = () => {
               <p className="text-white/50 lowercase ">white</p>
             </div>
             <div className="py-0">
-              <BookingForm />
+              <BookingForm title="Bima 1.2" />
             </div>
           </div>
         </div>
