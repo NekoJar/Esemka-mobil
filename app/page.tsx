@@ -12,7 +12,7 @@ import NavBar from "@/components/navbar/NavBar";
 export default function Home() {
   return (
     <>
-      <NavBar className="text-white" />
+      <NavBar className="text-white" withProducts />
       <main className="bg-black">
         <Hero />
         <MottoText />

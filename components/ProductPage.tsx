@@ -24,7 +24,12 @@ export const ProductPage = ({
         className="p-32 px-80 bg-gradient-to-b from-zinc-900 from-30% via-zinc-800 via-40% to-zinc-700 h-max relative z-[1]"
         ref={container}
       >
-        <Toaster duration={3000} position="bottom-right" theme="dark" />
+        <Toaster
+          duration={3000}
+          position="bottom-right"
+          theme="light"
+          className="font-roboto text-white"
+        />
         <div className="bg-gradient-to-br from-neutral-400 to-neutral-500 p-12 flex items-center justify-between rounded-xl pl-40 pr-10 gap-4">
           <Image
             src={photoSrc}

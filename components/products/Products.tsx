@@ -1,7 +1,6 @@
 "use client";
 import bima12 from "@/public/assets/Bima-1-2-transparent.png";
 import bima13 from "@/public/assets/Bima-1-3-transparent.png";
-import { PDFDownloadLink, Document, Page } from "@react-pdf/renderer";
 import {
   motion,
   MotionStyle,
@@ -19,12 +18,10 @@ import { useRef } from "react";
 import { Button } from "../ui/button";
 import { GetChars } from "../ui/GetChars";
 import { LinkButton } from "../ui/LinkButton";
-import Link from "next/link";
 
 export const Products = () => {
   const title = useRef(null);
   const products = useRef(null);
-  const bima12pdf = "";
 
   const isInView = useInView(title, { margin: "1%" });
   const isInViewProducts = useInView(products, { margin: "20%" });
@@ -118,7 +115,7 @@ export const Products = () => {
                     >
                       <a
                         href="./Brochure-bima-1-2.pdf"
-                        download="Brochure Bima 1.2"
+                        download="Brochure Bima 1.2.pdf"
                         className="flex gap-2 items-center"
                       >
                         Brochure
@@ -139,7 +136,7 @@ export const Products = () => {
                 />
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-4">
-                    <LinkButton href="/products/bima-1-2">
+                    <LinkButton href="/products/bima-1-3">
                       <p>Book Now</p>
                     </LinkButton>
                     <Button
@@ -148,7 +145,7 @@ export const Products = () => {
                     >
                       <a
                         href="./Brochure-bima-1-3.pdf"
-                        download="Brochure Bima 1.3"
+                        download="Brochure Bima 1.3.pdf"
                         className="flex gap-2 items-center"
                       >
                         Brochure

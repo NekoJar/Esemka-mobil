@@ -13,8 +13,15 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { background } from "../../utils/anim";
 import Side from "../sidebar/Side";
 import Nav from "./Nav";
+import TransitionLink from "../TransitionLink";
 
-const NavBar = ({ className }: { className?: string }) => {
+const NavBar = ({
+  className,
+  withProducts,
+}: {
+  className?: string;
+  withProducts?: boolean;
+}) => {
   const [isOpenProducts, setOpenProducts] = useState(false);
   const pathname = usePathname();
   const [isActive, setIsActive] = useState(false);
@@ -28,34 +35,34 @@ const NavBar = ({ className }: { className?: string }) => {
     setOpenProducts(!isOpenProducts);
   };
 
-  // useLayoutEffect(() => {
-  //   gsap.registerPlugin(ScrollTrigger);
-  //   gsap.to(button.current, {
-  //     scrollTrigger: {
-  //       trigger: document.documentElement,
-  //       start: 0,
-  //       end: window.innerHeight,
-  //       onLeave: () => {
-  //         gsap.to(button.current, {
-  //           scale: 1,
-  //           duration: 0.25,
-  //           ease: "power1.out",
-  //         });
-  //         setOpenProducts(false);
-  //       },
-  //       onEnterBack: () => {
-  //         gsap.to(
-  //           button.current,
-  //           // @ts-ignore
-  //           { scale: 0, duration: 0.25, ease: "power1.out" },
-  //           setIsActive(false),
-  //           // @ts-ignore
-  //           setOpenProducts(false)
-  //         );
-  //       },
-  //     },
-  //   });
-  // }, []);
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.to(button.current, {
+      scrollTrigger: {
+        trigger: document.documentElement,
+        start: 0,
+        end: window.innerHeight,
+        onLeave: () => {
+          gsap.to(button.current, {
+            scale: 1,
+            duration: 0.25,
+            ease: "power1.out",
+          });
+          setOpenProducts(false);
+        },
+        onEnterBack: () => {
+          gsap.to(
+            button.current,
+            // @ts-ignore
+            { scale: 0, duration: 0.25, ease: "power1.out" },
+            setIsActive(false),
+            // @ts-ignore
+            setOpenProducts(false)
+          );
+        },
+      },
+    });
+  }, []);
 
   return (
     <>
@@ -80,7 +87,7 @@ const NavBar = ({ className }: { className?: string }) => {
                 variant="link"
                 className="decoration-transparent font-extralight text-md hover:text-zinc-300 hover:-translate-y-1  "
               >
-                <Link href="/">Home</Link>
+                <TransitionLink href="/" label="Home" />
               </Button>
             </li>
             <li>
@@ -88,17 +95,19 @@ const NavBar = ({ className }: { className?: string }) => {
                 variant="link"
                 className=" decoration-transparent font-extralight text-md hover:text-zinc-300 hover:-translate-y-1  "
               >
-                <Link href="/news">News</Link>
+                <TransitionLink href="/news" label="News" />
               </Button>
             </li>
-            <li>
-              <Button
-                variant="link"
-                className=" decoration-transparent font-extralight text-md hover:text-zinc-300 hover:-translate-y-1  "
-              >
-                <Link href="#products">Products</Link>
-              </Button>
-            </li>
+            {withProducts && (
+              <li>
+                <Button
+                  variant="link"
+                  className=" decoration-transparent font-extralight text-md hover:text-zinc-300 hover:-translate-y-1  "
+                >
+                  <Link href="#products">Products</Link>
+                </Button>
+              </li>
+            )}
           </ul>
         </div>
         <AnimatePresence mode="wait">

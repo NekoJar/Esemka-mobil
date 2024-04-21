@@ -57,7 +57,8 @@
     "slices/index.ts",
     "app/slice-simulator/page.tsx",
     "components/articles/Article.tsx",
-    "components/ui/LinkButton.tsx"
+    "components/ui/LinkButton.tsx",
+    "utils/anim.js"
   ],
   "exclude": ["node_modules"]
 }
