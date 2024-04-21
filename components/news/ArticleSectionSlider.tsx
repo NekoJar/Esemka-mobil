@@ -13,7 +13,7 @@ const ArticleSectionSlider = ({
 }) => {
   return (
     <>
-      {articles.slice(0, 3).map((article, i) => {
+      {articles.slice(0, 4).map((article, i) => {
         const targetScale = 1 - (articles.length - i) * 0.05;
         return (
           //@ts-ignore
