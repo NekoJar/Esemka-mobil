@@ -6,6 +6,7 @@ import { Footer } from "@/components/footer/Footer";
 import { LatestArticle } from "@/components/LatestArticle";
 import NavBar from "@/components/navbar/NavBar";
 import { RefContainer } from "@/components/RefContainer";
+import TransitionLink from "@/components/TransitionLink";
 import { dateFormatter } from "@/lib/dateFormatter";
 import { ArticleDocument } from "@/prismicio-types";
 import { components } from "@/slices";

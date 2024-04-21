@@ -13,6 +13,7 @@ import styles from "./Card.module.scss";
 import { useTransform, motion, useScroll, MotionValue } from "framer-motion";
 import { useRef } from "react";
 import { Heading } from "../articles/Heading";
+import TransitionLink from "../TransitionLink";
 
 const Card = ({
   i,

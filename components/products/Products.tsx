@@ -106,9 +106,10 @@ export const Products = () => {
                 />
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-4">
-                    <LinkButton href="/products/bima-1-2">
-                      <p>Book Now</p>
-                    </LinkButton>
+                    <LinkButton
+                      href="/products/bima-1-2"
+                      label="Book Now"
+                    ></LinkButton>
                     <Button
                       variant="outlineRounded"
                       className="bg-zinc-700 text-zinc-200 p-6"
@@ -136,9 +137,10 @@ export const Products = () => {
                 />
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-4">
-                    <LinkButton href="/products/bima-1-3">
-                      <p>Book Now</p>
-                    </LinkButton>
+                    <LinkButton
+                      href="/products/bima-1-3"
+                      label="Book Now"
+                    ></LinkButton>
                     <Button
                       variant="outlineRounded"
                       className="bg-zinc-700 text-zinc-200 p-6"

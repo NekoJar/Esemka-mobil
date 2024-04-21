@@ -14,6 +14,7 @@ import {
   useTransform,
 } from "framer-motion";
 import useMeasure from "react-use-measure";
+import TransitionLink from "../TransitionLink";
 
 const navItems = [
   {
@@ -22,7 +23,7 @@ const navItems = [
   },
   {
     title: "News",
-    href: "#news",
+    href: "/news",
   },
   {
     title: "Sitemap",
@@ -30,11 +31,11 @@ const navItems = [
   },
   {
     title: "Privacy Policy",
-    href: "#products",
+    href: "",
   },
   {
     title: "Terms & Condition",
-    href: "#products",
+    href: "",
   },
 ];
 
@@ -71,24 +72,22 @@ export const Footer = () => {
           <p className="max-w-6xl text-md font-roboto  p-40 text-right gap-4">
             {navItems.map((nav, i) => (
               <span className="flex justify-start w-full" key={i}>
-                <Link
+                <TransitionLink
                   href={nav.href}
                   className=" text-zinc-700 hover:text-zinc-400 hover:-translate-x-2 text-right"
-                >
-                  {nav.title}
-                </Link>
+                  label={nav.title}
+                ></TransitionLink>
               </span>
             ))}
           </p>
           <p className="max-w-6xl text-md font-roboto  p-40 text-right gap-4">
             {navItems.map((nav, i) => (
-              <span className="flex justify-end w-full" key={i}>
-                <Link
+              <span className="flex justify-start w-full" key={i}>
+                <TransitionLink
                   href={nav.href}
                   className=" text-zinc-700 hover:text-zinc-400 hover:-translate-x-2 text-right"
-                >
-                  {nav.title}
-                </Link>
+                  label={nav.title}
+                ></TransitionLink>
               </span>
             ))}
           </p>

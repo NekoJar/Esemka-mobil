@@ -3,6 +3,7 @@ import { PrismicNextLink } from "@prismicio/next";
 import { PrismicText } from "@prismicio/react";
 import { ArticleDocument } from "@/prismicio-types";
 import { dateFormatter } from "@/lib/dateFormatter";
+import TransitionLink from "./TransitionLink";
 
 export function LatestArticle({
   article,

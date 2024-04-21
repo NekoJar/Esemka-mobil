@@ -24,9 +24,11 @@ export function News() {
         />
       </div>
       <div className="flex items-center justify-center -mt-[24rem]">
-        <LinkButton href="/news" className="border-black text-black">
-          <p>More News</p>
-        </LinkButton>
+        <LinkButton
+          href="/news"
+          className="border-black text-black"
+          label="More News"
+        ></LinkButton>
       </div>
       <div
         className="bg-neutral-100 relative z-[1] w-[100vw] p-40"

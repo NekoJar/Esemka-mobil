@@ -8,6 +8,7 @@ import { dateFormatter } from "@/lib/dateFormatter";
 
 import { Heading } from "./Heading";
 import { ArticleDocument } from "@/prismicio-types";
+import TransitionLink from "../TransitionLink";
 
 export function Article({ article }: { article: ArticleDocument<string> }) {
   const featuredImage =
@@ -35,7 +36,9 @@ export function Article({ article }: { article: ArticleDocument<string> }) {
       <div className="grid grid-cols-1 gap-3 md:col-span-2">
         <Heading as="h2">
           <PrismicNextLink document={article}>
-            <PrismicText field={article.data.title} />
+            
+              <PrismicText field={article.data.title} />
+            
           </PrismicNextLink>
         </Heading>
         <p className="font-serif italic tracking-tighter text-slate-500">

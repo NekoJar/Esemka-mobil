@@ -6,15 +6,18 @@ import { Button } from "./button";
 import clsx from "clsx";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import TransitionLink from "../TransitionLink";
 
 export const LinkButton = ({
   className,
   children,
   href,
+  label,
 }: {
   className?: string;
-  children: ReactNode;
+  children?: ReactNode;
   href: string;
+  label: string;
 }) => {
   const [isHovered, setIsHovered] = useState(false);
   return (
@@ -27,7 +30,8 @@ export const LinkButton = ({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <Link href={href} className="flex items-center">
+      <TransitionLink href={href} className="flex items-center" label="">
+        {label}
         {children}
         <span>
           <ArrowUpRight
@@ -47,7 +51,7 @@ export const LinkButton = ({
             }
           />
         </span>
-      </Link>
+      </TransitionLink>
     </Button>
   );
 };

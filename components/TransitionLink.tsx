@@ -2,14 +2,16 @@
 import { usePathname, useRouter } from "next/navigation";
 import { animatePageOut } from "@/utils/animation";
 import { ReactNode } from "react";
+import { cn } from "@/lib/utils";
 
 interface Props {
   href: string;
-  label: string;
+  label?: string;
   children?: ReactNode;
+  className?: string;
 }
 
-const TransitionLink = ({ href, label, children }: Props) => {
+const TransitionLink = ({ href, label, children, className }: Props) => {
   const router = useRouter();
   const pathname = usePathname();
 
@@ -20,7 +22,7 @@ const TransitionLink = ({ href, label, children }: Props) => {
   };
 
   return (
-    <button className="" onClick={handleClick}>
+    <button className={cn("", className)} onClick={handleClick}>
       {label}
       {children}
     </button>

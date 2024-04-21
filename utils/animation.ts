@@ -19,7 +19,10 @@ export const animatePageIn = () => {
   }
 };
 
-export const animatePageOut = (href: string, router: AppRouterInstance) => {
+export const animatePageOut = (
+  href: string | null,
+  router: AppRouterInstance
+) => {
   const bannerOne = document.getElementById("banner-1");
   const bannerTwo = document.getElementById("banner-2");
   const bannerThree = document.getElementById("banner-3");
@@ -34,7 +37,7 @@ export const animatePageOut = (href: string, router: AppRouterInstance) => {
       yPercent: 0,
       stagger: 0.2,
       onComplete: () => {
-        router.push(href);
+        router.push(href as string);
       },
     });
   }
