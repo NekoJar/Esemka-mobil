@@ -82,7 +82,7 @@ export const Footer = () => {
           </p>
           <p className="max-w-6xl text-md font-roboto  p-40 text-right gap-4">
             {navItems.map((nav, i) => (
-              <span className="flex justify-start w-full" key={i}>
+              <span className="flex justify-end w-full" key={i}>
                 <TransitionLink
                   href={nav.href}
                   className=" text-zinc-700 hover:text-zinc-400 hover:-translate-x-2 text-right"
