@@ -3,6 +3,7 @@ import { repositoryName } from "@/prismicio";
 import { PrismicPreview } from "@prismicio/next";
 import type { Metadata } from "next";
 import { SmoothScroll } from "../components/ui/SmoothScroll";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -24,6 +25,7 @@ export default function RootLayout({
         <SmoothScroll>
           {children}
           <PrismicPreview repositoryName={repositoryName} />
+          <SpeedInsights />
         </SmoothScroll>
       </body>
     </html>

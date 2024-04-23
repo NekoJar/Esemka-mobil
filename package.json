@@ -26,6 +26,7 @@
     "@studio-freight/lenis": "^1.0.42",
     "@studio-freight/react-lenis": "^0.0.46",
     "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@vercel/speed-insights": "^1.0.10",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "framer-motion": "^11.0.8",
